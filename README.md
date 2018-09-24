@@ -1,6 +1,6 @@
 <img src="https://preview.ibb.co/kTw81p/chopsticks_cash.png" width="279x578">
 
-If you are scared by Bitcoin Cash [forks](https://en.wikipedia.org/wiki/List_of_bitcoin_forks), use [chopsticks](https://api.chopsticks.cash) !
+If you are afraid of Bitcoin Cash [forks](https://en.wikipedia.org/wiki/List_of_bitcoin_forks), use [chopsticks](https://api.chopsticks.cash) !
 
 
 ## Context
@@ -8,9 +8,9 @@ If you are scared by Bitcoin Cash [forks](https://en.wikipedia.org/wiki/List_of_
 Sadly, the probability that the BitcoinCash (BCH/XBC) community will have to deal with a contentious fork on November 15th, 2018 is pretty high at this point.
 
 Here is the list of the contentious forks that have been announced in the past weeks:
-- **Bitcoin Cash** (BCH/XBC) maintained by Bitcoin ABC / Bitcoin Unlimited which is basically the original and historical Bitcoin Cash chain that is going to be upgraded with new features ([more info](https://bitcoinabc.org));
-- **Bitcoin SV** (TBD/XBS) maintained by nChain which is basically the contentious fork who wants to push different upgrades ([more info](https://github.com/bitcoin-sv));
-- **Bitcoin NayBC** (TBD/XBN) maintained by Tom Harding which is basically the chain of the naysayers to both of the proposed forks and who want to stay on the current chain ([more info](https://github.com/dgenr8/bitcoin-abc)).
+- **Bitcoin Cash** (BCH/XBC) maintained by Bitcoin ABC / Bitcoin Unlimited which is basically the original and historical Bitcoin Cash chain that is going to be upgraded with new features [[more info](https://bitcoinabc.org)];
+- **Bitcoin SV** (TBD/XBS) maintained by nChain which is basically the contentious fork who wants to push different upgrades [[more info](https://github.com/bitcoin-sv)];
+- **Bitcoin NayBC** (TBD/XBN) maintained by Tom Harding which is basically the chain of the naysayers to both of the proposed forks and who want to stay on the current chain [[more info](https://github.com/dgenr8/bitcoin-abc)].
 
 This list may evolve and will be updated if any new announcement is made by the community.
 
