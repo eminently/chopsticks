@@ -49,13 +49,15 @@ API URL: https://api.chopsticks.cash
 We decided to provide only one way for you to send us your transaction: a raw signed transaction (see:
 ```sendrawtransactions``` command of bitcoin-cli). 
 
-In fact, we don't want you to pass your private key to our API, even encrypted, for the security of your funds. 
+In fact, we don't want you to pass your private key to our API, even if it is encrypted, for the security of your funds. 
 
 So in order to use our API, you will have to sign your transaction on the client-side (your side) prior to calling our API and passing the hexadecimal representation of the signed transaction.
 
-Also, you will have to pass the chains you want us to process your transactions on.
+We intend to provide a Golang library to help you sign your transaction on the client-side. Contributions will be welcome for other programming languages.
 
-Additionally, you can cast a vote simultaneously for your most preferred fork.
+Also, you will have to pass the chains you want us to execute your transaction on.
+
+Optionally, you can cast a vote for your most preferred forks.
 
 
 ##### Request
@@ -74,7 +76,7 @@ POST /api/transactions
 
 Note that the order of the blockchains array will count as vote if you pass ```voting:true``` within your JSON request.
 
-So if you want to vote for XBC first, XBN second, XBS last, you will need to write:
+So if you want to rank XBC 1st, XBN 2nd, XBS 3rd, you will need to write:
 
 ```json
 { 
@@ -87,7 +89,7 @@ So if you want to vote for XBC first, XBN second, XBS last, you will need to wri
 
 ##### Response
 
-The API will send you a response containing the hashes of your transaction as well as some related chain info, the casted vote data and its signature.
+The API will send you a response containing your original hexadecimal representation of the signed transaction, the hash of your transaction as well as some info related to the chain it was excecuted on, the casted vote data and its signature.
 
 ```json
 { 
