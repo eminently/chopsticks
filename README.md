@@ -109,7 +109,7 @@ The API will send you a response containing the hashes of your transaction as we
 
 ### Chopsticks Infrastructure
 
-We will run the 3+ different nodes on AWS and the API.
+We will run the 3+ different nodes and chopsticks API on AWS.
 
 [chopsticks.cash](https://api.chopsticks.cash) API will exclusively connect to these 3+ nodes that we will maintain.
 
