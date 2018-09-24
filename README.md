@@ -110,18 +110,15 @@ We will run the 3+ different nodes on AWS and the API.
 [chopsticks.cash](https://api.chopsticks.cash) API will exclusively connect to these 3+ nodes that we will maintain.
 
 
-### Contribute
+## Contribute and Support Us
 
 Join chopsticks.cash [Telegram group](https://t.me/joinchat/FmkGFhJBwEvLb00XQ1ztIA) and share your feedback and ideas with the team! 
-
-
-### Support us
 
 In order to help us developing the API and running the AWS nodes, you can donate some [$BCH](https://coinmarketcap.com/currencies/bitcoin-cash/), here is our wallet address: [1AWpZ721wD4LXurMvNFwc42sUGcF5NaA7t](https://www.blocktrail.com/BCC/address/1AWpZ721wD4LXurMvNFwc42sUGcF5NaA7t). Thanks you so much if you do so!
 
 
 
-### License
+## License
 
 The MIT License
 
