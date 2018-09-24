@@ -5,29 +5,31 @@ If you are scared by Bitcoin Cash [forks](https://en.wikipedia.org/wiki/List_of_
 
 ## Context
 
-Sadly, the probability that the BitcoinCash (BCH/XBC) communty will have to deal with a contentious fork on November 15th, 2018 is pretty high at this point.
+Sadly, the probability that the BitcoinCash (BCH/XBC) community will have to deal with a contentious fork on November 15th, 2018 is pretty high at this point.
 
 Here is the list of the contentious forks that have been announced in the past weeks:
 - **Bitcoin Cash** (BCH/XBC) maintained by Bitcoin ABC / Bitcoin Unlimited which is basically the original and historical Bitcoin Cash chain that is going to be upgraded with new features ([more info](https://bitcoinabc.org));
 - **Bitcoin SV** (TBD/XBS) maintained by nChain which is basically the contentious fork who wants to push different upgrades ([more info](https://github.com/bitcoin-sv));
 - **Bitcoin NayBC** (TBD/XBN) maintained by Tom Harding which is basically the chain of the naysayers to both of the proposed forks and who want to stay on the current chain ([more info](https://github.com/dgenr8/bitcoin-abc)).
 
-This list may evolve within the next weeks and will be updated if any new announcement is made by the community.
+This list may evolve and will be updated if any new announcement is made by the community.
 
 
 ## Project Goals
 
 No one knows how things will go during this contentious forking period, and which Bitcoin Cash forks are going to survive and to be supported by the community.
 
-Early adopters of BitcoinCash and Bitcoin Cash based application developers like us at [eminent.ly](https://eminent.ly) (a business social network that records proofs of referral and interest on-chain) cannot take the risk to lose any of the transactions during this period, and absolutely need to continue to operate despite the contentious forks.
+Early adopters of Bitcoin Cash and application developers like us at [eminent.ly](https://eminent.ly) (a business social network that records proofs of referral and interest on-chain) cannot take the risk of losing any of their transactions during this period, and absolutely need to continue operating during the contentious fork.
 
 The solution we propose here with [chopsticks.cash](https://api.chopsticks.cash) is to provide an API that will record transactions on each Bitcoin Cash post-fork chains (XBC, XBS, XBN, etc.). 
 
-That way, Bitcoin Cash application developers will not be taken hostage in the conflicts between miners and protocol developers, and will follow each chain at no additional costs.
+That way, Bitcoin Cash application developers will not be taken hostage in the conflicts opposing miners and/or protocol developers, and will be able to follow each chain incuring no additional costs.
 
-In fact, the process of forking the chain, will by definition duplicate the funds you own on each chain. Thus, processing your transaction will cost you no more coins than if you were recording on a unique Bitcoin Cash chain. 
+In fact, the process of forking the chain will duplicate the funds you own on each chain, by definition. Thus, processing your transaction will not cost you more coins than if you were recording it on a unique and non-forked Bitcoin Cash chain. 
 
-Bitcoin Cash application developers will be able to operate their business normally during the conflicting period. Finally, we will see how things will go and which chain(s) the market will decide to support.
+Bitcoin Cash application developers will be able to operate their business normally during the conflicting period. 
+
+And finally, we will see how things will go and which chain(s) the market will decide to support, and which one to continue operating on.
 
 
 ## Technical architecture
@@ -44,10 +46,12 @@ API URL: https://api.chopsticks.cash
 
 #### 1. Send a raw transaction to all chains' node
 
-We decided to provide only one way for you to send us yourr transaction e.g, a raw signed transaction (see:
-```sendrawtransactions``` command of bitcoin-cli). In fact, we don't want you to pass your private key, even encrypted for the security of your funds. 
+We decided to provide only one way for you to send us your transaction: a raw signed transaction (see:
+```sendrawtransactions``` command of bitcoin-cli). 
 
-So in order to use our API, you will have to sign your transaction on the client-side prior to calling our API and passing the  hexadecimal representation of the signed transaction.
+In fact, we don't want you to pass your private key to our API, even encrypted, for the security of your funds. 
+
+So in order to use our API, you will have to sign your transaction on the client-side (your side) prior to calling our API and passing the hexadecimal representation of the signed transaction.
 
 Also, you will have to pass the chains you want us to process your transactions on.
 
