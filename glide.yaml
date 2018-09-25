@@ -1,0 +1,21 @@
+package: github.com/chopsticks
+import:
+- package: github.com/btcsuite/btcd
+  subpackages:
+  - btcec
+  - chaincfg
+  - chaincfg/chainhash
+  - txscript
+  - wire
+- package: github.com/btcsuite/btcutil
+- package: github.com/cpacia/bchutil
+- package: github.com/jinzhu/copier
+- package: github.com/rs/zerolog
+  version: ^1.9.1
+  subpackages:
+  - log
+testImport:
+- package: github.com/stretchr/testify
+  version: ^1.2.2
+  subpackages:
+  - assert
