@@ -20,6 +20,19 @@
                 <li><a href="{{ site.github.repository_url }}">View On <strong>GitHub</strong></a></li>
             </ul>
 
+
+            <!-- This line should go where you want to put your button -->
+            <div class="money-button"
+                 data-to="609"
+                 data-amount="5"
+                 data-currency="USD"
+                 data-label="Tip "
+                 data-client-identifier="407fecd6d30bc57272e6bc81f8e1601e"
+                 data-button-id="1537912592580"
+                 data-button-data="{}"
+                 data-type="tip"
+            ></div>
+
         </header>
 
         <section>
@@ -36,6 +49,9 @@
     </div>
 
     <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
+
+    <!-- This line can go anywhere -->
+    <script src="https://api.moneybutton.com/moneybutton.js"></script>
 
     {% if site.google_analytics %}
     <script>
