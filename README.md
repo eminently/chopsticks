@@ -120,7 +120,7 @@ We will run the 3+ different nodes and chopsticks API on AWS.
 
 Join chopsticks.cash [Telegram group](https://t.me/joinchat/FmkGFhJBwEvLb00XQ1ztIA) and share your feedback and ideas with the team! 
 
-In order to help us develop the API and run the AWS nodes, you can donate some [$BCH](https://coinmarketcap.com/currencies/bitcoin-cash/), please send it to our wallet address: [1AWpZ721wD4LXurMvNFwc42sUGcF5NaA7t](https://www.blocktrail.com/BCC/address/1AWpZ721wD4LXurMvNFwc42sUGcF5NaA7t). You will be part of the journey, a founding member!
+In order to help us develop the API and run the AWS nodes, you can donate some [$BCH](https://coinmarketcap.com/currencies/bitcoin-cash/), please send it to our wallet address: [bitcoincash:1HrhBfFRFovHv8EMxsuB9EcZgamtuH3fMc](https://www.blocktrail.com/BCC/address/1HrhBfFRFovHv8EMxsuB9EcZgamtuH3fMc). You will be part of the journey, a founding member!
 
 
 
