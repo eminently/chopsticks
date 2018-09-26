@@ -68,7 +68,7 @@ POST /api/transactions
 
 ```json
 { 
-  txHex: "aaaa...bbb", 
+  tx_hex: "aaaa...bbb", 
   blockchains: ["XBC", "XBS", "XBN"],
   voting: false
 }
@@ -93,7 +93,7 @@ The API will send you a response containing your original hexadecimal representa
 
 ```json
 { 
-  txHex: "aaaa...bbb", 
+  tx_hex: "aaaa...bbb", 
   blockchains: [
     { type:"XBC", hash: "aaa...bbb", version:"v0.18.2.0-unk", currentBlockHeight:555555 }, 
     { type:"XBS", hash: "aaa...bbb", version:"0.1.0.0-beta-200015661", currentBlockHeight:555555 },

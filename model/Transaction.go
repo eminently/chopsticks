@@ -23,19 +23,17 @@ type Transaction struct {
 	Status      int              `json:"status,omitempty"`
 }
 
-
 type TransactionRequest struct {
-	TxHex 				string			`json:"txhex"`
-	Blockchains 		[]string	 	`json:"blockchains,omitempty"`
-	Voting				bool			`json:"voting,omitempty"`
+	TxHex 					string			`json:"tx_hex"`
+	Blockchains 			[]string	 	`json:"blockchains,omitempty"`
+	Voting					bool			`json:"voting,omitempty"`
 }
 
-
 type TransactionResponse struct {
-	TxHex 				string			`json:"txhex"`
-	Blockchains		 	[]Transaction	`json:"blockchains,omitempty"`
-	Vote				Vote			`json:"vote,omitempty"`
-	VoteSignature		string			`json:"vote_signature,omitempty"`
+	TxHex 					string			`json:"tx_hex"`
+	Transactions		 	[]Transaction	`json:"transactions,omitempty"`
+	Vote					Vote			`json:"vote,omitempty"`
+	VoteSignature			string			`json:"vote_signature,omitempty"`
 }
 
 type Transactions struct {
