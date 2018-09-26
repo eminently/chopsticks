@@ -62,7 +62,7 @@ Optionally, you can cast a vote for your most preferred forks.
 
 ##### Request
  
-```http request
+```
 POST /api/transactions
 ```
 
