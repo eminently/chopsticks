@@ -6,7 +6,9 @@
  *
  *  Bitcoin Cash $BCH wallet: 1HrhBfFRFovHv8EMxsuB9EcZgamtuH3fMc
  */
- package model
+package model
+
+import "chopsticks/errors"
 
 type Transaction struct {
 	DataVersion int              `json:"dataVersion"`
@@ -24,18 +26,19 @@ type Transaction struct {
 }
 
 type TransactionRequest struct {
-	TxHex 					string			`json:"tx_hex"`
-	Blockchains 			[]string	 	`json:"blockchains,omitempty"`
-	Voting					bool			`json:"voting,omitempty"`
+	TxHex       string   `json:"tx_hex"`
+	Blockchains []string `json:"blockchains,omitempty"`
+	Voting      bool     `json:"voting,omitempty"`
 }
 
 type TransactionResponse struct {
-	TxHex 					string			`json:"tx_hex"`
-	Transactions		 	[]Transaction	`json:"transactions,omitempty"`
-	Vote					Vote			`json:"vote,omitempty"`
-	VoteSignature			string			`json:"vote_signature,omitempty"`
+	TxHex         string            `json:"tx_hex"`
+	Transactions  []Transaction     `json:"transactions,omitempty"`
+	Vote          *Vote             `json:"vote,omitempty"`
+	VoteSignature string            `json:"vote_signature,omitempty"`
+	Errors        []errors.AppError `json:"errors,omitempty"`
 }
 
 type Transactions struct {
-	Transactions 	[]Transaction
+	Transactions []Transaction
 }
