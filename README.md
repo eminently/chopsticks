@@ -90,21 +90,24 @@ So if you want to rank XBC 1st, XBN 2nd, XBS 3rd, you will need to write:
 ##### Response
 
 The API will send you a response containing your original hexadecimal representation of the signed transaction, the hash of your transaction as well as some info related to the chain it was excecuted on, the casted vote data and its signature.
+Note that block_height is the last block mined not the block that your transaction will be added to. See [model/Transaction](https://github.com/eminently/chopsticks/blob/master/model/Transaction.go) and [model/Vote](https://github.com/eminently/chopsticks/blob/master/model/Vote.go) to the full list of JSON attributes.
 
 ```json
 { 
   tx_hex: "aaaa...bbb", 
-  blockchains: [
-    { type:"XBC", hash: "aaa...bbb", version:"v0.18.2.0-unk", currentBlockHeight:555555 }, 
-    { type:"XBS", hash: "aaa...bbb", version:"0.1.0.0-beta-200015661", currentBlockHeight:555555 },
-    { type:"XBN", hash: "aaa...bbb", version:"v0.17.2.0-5210f8f46", currentBlockHeight:555555 }
+  transactions: [
+    { blockchain_type:"XBC", hash: "aaa...bbb", blockchain_version:"v0.18.2.0-unk", block_height:555555, ... },
+    { blockchain_type:"XBS", hash: "aaa...bbb", blockchain_version:"0.1.0.0-beta-200015661", block_height:555555, ... },
+    { blockchain_type:"XBN", hash: "aaa...bbb", blockchain_version:"v0.17.2.0-5210f8f46", block_height:555555, ... }
   ],
   vote: {
     uuid: "1234-...-accd",
     preferredChains: ["XBC", "XBN", "XBS"],
-    unixTimestamp: 123456789,
+    created: 123456789,
+    ...
   },
-  vote_signature: "bbbb...ccc"
+  vote_signature: "bbbb...ccc",
+  errors: []
 }
 ```
 
