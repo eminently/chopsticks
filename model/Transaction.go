@@ -11,18 +11,19 @@ package model
 import "chopsticks/errors"
 
 type Transaction struct {
-	DataVersion int              `json:"dataVersion"`
-	Uid         string           `json:"uid"`
-	Created     int64            `json:"created"`
-	UserId      string           `json:"userId"`
-	Inputs      map[string]int64 `json:"inputs,omitempty"`
-	Outputs     map[string]int64 `json:"outputs,omitempty"`
-	Amount      int64            `json:"amount,omitempty"`
-	SignedTx    string           `json:"signedtx,omitempty"`
-	Hash        string           `json:"txhash,omitempty"`
-	ChainType   string           `json:"blockchain_type,omitempty"`
-	BlockHeight int              `json:"block_height,omitempty"`
-	Status      int              `json:"status,omitempty"`
+	DataVersion  int              `json:"dataVersion"`
+	Uid          string           `json:"uid"`
+	Created      int64            `json:"created"`
+	UserId       string           `json:"userId"`
+	Inputs       map[string]int64 `json:"inputs,omitempty"`
+	Outputs      map[string]int64 `json:"outputs,omitempty"`
+	Amount       int64            `json:"amount,omitempty"`
+	SignedTx     string           `json:"signedtx,omitempty"`
+	Hash         string           `json:"txhash,omitempty"`
+	ChainType    string           `json:"blockchain_type,omitempty"`
+	ChainVersion string           `json:"blockchain_version,omitempty"`
+	BlockHeight  int              `json:"block_height,omitempty"`
+	Status       int              `json:"status,omitempty"`
 }
 
 type TransactionRequest struct {
