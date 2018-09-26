@@ -1,4 +1,4 @@
-<img src="https://preview.ibb.co/dVzECU/chopsticks_name.png" width="363x751">
+<img src="https://preview.ibb.co/dVzECU/chopsticks_name.png" width="417x863">
 
 If you are afraid of Bitcoin Cash [forks](https://en.wikipedia.org/wiki/List_of_bitcoin_forks), use [chopsticks](https://api.chopsticks.cash) !
 
