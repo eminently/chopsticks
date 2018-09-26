@@ -13,8 +13,8 @@ type Transaction struct {
 	Uid         string           `json:"uid"`
 	Created     int64            `json:"created"`
 	UserId      string           `json:"userId"`
-	Inputs      map[string]int64 `json:"source_address,omitempty"`
-	Outputs     map[string]int64 `json:"destination_address,omitempty"`
+	Inputs      map[string]int64 `json:"inputs,omitempty"`
+	Outputs     map[string]int64 `json:"outputs,omitempty"`
 	Amount      int64            `json:"amount,omitempty"`
 	SignedTx    string           `json:"signedtx,omitempty"`
 	Hash        string           `json:"txhash,omitempty"`

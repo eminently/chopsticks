@@ -170,13 +170,9 @@ func CreateBitcoinCashTransaction(privateKey string, recipientAddress string, am
 	fmt.Println("signed hexadecimal representation of transaction: ", signedTx)
 
 	// build and return the transaction object
-	transaction.TxId = redeemTx.TxHash().String()
-	transaction.UnsignedTx = hex.EncodeToString(unsignedTx.Bytes())
+	transaction.Hash = redeemTx.TxHash().String()
 	transaction.Amount = amount
 	transaction.SignedTx = hex.EncodeToString(signedTx.Bytes())
-	transaction.SourceAddress = sourceAddress.EncodeAddress()
-	transaction.DestinationAddress = destinationAddress.EncodeAddress()
-	transaction.MsgTx = redeemTx
 
 	return &transaction, nil
 }
