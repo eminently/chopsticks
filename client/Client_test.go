@@ -56,10 +56,10 @@ func TestBchSendRawTransaction(t *testing.T) {
 
 	if transaction == nil {
 		transaction = &model.Transaction{}
-		transaction.Hash = signedHex
+		transaction.SignedTx = signedHex
 	}
 
-	response, err := SendRawTransactionToChopsticks(transaction.Hash,
+	response, err := SendRawTransactionToChopsticks(transaction.SignedTx,
 													[]string{
 														model.BLOCKCHAIN_TYPE_XBC_MAINNET, // your first choice
 														model.BLOCKCHAIN_TYPE_XBS_MAINNET, // your second choice
@@ -67,9 +67,11 @@ func TestBchSendRawTransaction(t *testing.T) {
 													},
 													true)
 
-	assert.Nil(t, err, "shoult not report any")
-
 	data, _ := json.Marshal(response)
 
 	fmt.Println("response data: ", string(data))
+
+	assert.Nil(t, err, "shoult not report any")
+
+
 }
