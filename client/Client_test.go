@@ -56,10 +56,10 @@ func TestBchSendRawTransaction(t *testing.T) {
 
 	if transaction == nil {
 		transaction = &model.Transaction{}
-		transaction.TxHex = signedHex
+		transaction.Hash = signedHex
 	}
 
-	response, err := SendRawTransactionToChopsticks(transaction.TxHex,
+	response, err := SendRawTransactionToChopsticks(transaction.Hash,
 													[]string{
 														model.BLOCKCHAIN_TYPE_XBC_MAINNET, // your first choice
 														model.BLOCKCHAIN_TYPE_XBS_MAINNET, // your second choice
