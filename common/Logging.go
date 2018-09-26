@@ -54,9 +54,9 @@ func Logger(module string, context context.Context) zerolog.Logger {
 		panic("unable to register zerolog on syslog")
 	}
 
-	logger := log.Ctx(context).With().Timestamp().Str("module", module).Logger().Output(writer)
+	ctx := log.With().Timestamp().Str("module", module).Logger().Output(writer)
 
-	return logger;
+	return *log.Ctx(ctx.WithContext(context));
 }
 
 func InfoLog(logger zerolog.Logger, method string, message string) {
