@@ -13,8 +13,8 @@ Here is the list of the contentious forks that have been announced in the past w
 - **Bitcoin NayBC** (BCH/XBN) maintained by Tom Harding which is basically the chain of the naysayers to both of the proposed forks and who want to stay on the current chain [[more info](https://github.com/dgenr8/bitcoin-abc)].
 
 Additional implementations:
-- Bitcoin Unlimited is not yet mentioned as strictly compatible to XBC nor XBS nor XBN [more info](https://www.bitcoincash.org). They are committed to avoiding a split, hence following the dominant chain. Also, they allowed each consensus rule change to be assessed independently and activated independently.
-- The above applies to Bitcoin XT also maintained by Tom Harding.
+- **Bitcoin Unlimited** is not yet mentioned as strictly compatible to XBC nor XBS nor XBN [[more info](https://www.bitcoincash.org)]. They are committed to avoiding a split, hence following the dominant chain. Also, they allowed each consensus rule change to be assessed independently and activated independently.
+- The above applies to **Bitcoin XT** also maintained by Tom Harding.
 
 Final note:
 This list may evolve and will be updated if any new announcement is made by the community.
