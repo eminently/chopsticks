@@ -47,7 +47,9 @@ Here are the main features of [chopsticks.cash](https://api.chopsticks.cash) API
 2. cast your vote about your chain preference for example (XBC, XBN, XBS) by descending order of preference;
 3. give statistics to the community.
 
-API URL: https://api.chopsticks.cash
+```API URL: https://api.chopsticks.cash```
+
+The API is live and you can start processing your transactions through it.
 
 
 #### 1. Send a raw transaction to all chains' node
@@ -59,7 +61,7 @@ In fact, we don't want you to pass your private key to our API, even if it is en
 
 So in order to use our API, you have to sign your transaction on the client-side (your side) prior to calling our API and passing the hexadecimal representation of the signed transaction.
 
-We intend to provide a Golang library to help you sign your transaction on the client-side. Contributions are welcome for other programming languages.
+We are providing a Golang library to help you sign your transaction on the client-side. Contributions are welcome for other programming languages.
 
 Also, you have to pass the chains you want us to execute your transaction on.
 
@@ -92,6 +94,7 @@ So if you want to rank XBC 1st, XBN 2nd, XBS 3rd, you will need to write:
 }
 ```
 
+Note that post-fork, you will be able to only process transaction to every chains with coins acquired pre-fork.
 
 ##### Response
 
@@ -117,6 +120,8 @@ Note that block_height is the last block mined not the block that your transacti
 }
 ```
 
+Note that pre-fork, your transaction will be sent to the 3 nodes. But, you don't have to worry double spend will not
+occur per Bitcoin protocol specification, it will just be repeated by the 3 nodes.
 
 ### Chopsticks Infrastructure
 
