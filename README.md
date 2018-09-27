@@ -27,7 +27,7 @@ No one knows how things will go during this contentious forking period, and whic
 
 Early adopters of Bitcoin Cash and application developers like us at [eminent.ly](https://eminent.ly) (a business social network that records proofs of referral and interest on-chain) cannot take the risk of losing any of their transactions during this period, and absolutely need to continue operating during the contentious fork.
 
-The solution we propose here with [chopsticks.cash](https://api.chopsticks.cash) is to provide an API that will record transactions on each Bitcoin Cash post-fork chains (XBC, XBS, XBN, etc.). 
+The solution we propose here with [chopsticks.cash](https://api.chopsticks.cash) is to provide an API that is recording transactions on each Bitcoin Cash post-fork chains (XBC, XBS, XBN, etc.).
 
 That way, Bitcoin Cash application developers will not be taken hostage in the conflicts opposing miners and/or protocol developers, and will be able to follow each chain incuring no additional costs.
 
@@ -57,11 +57,11 @@ We decided to provide only one way for you to send us your transaction: a raw si
 
 In fact, we don't want you to pass your private key to our API, even if it is encrypted, for the security of your funds. 
 
-So in order to use our API, you will have to sign your transaction on the client-side (your side) prior to calling our API and passing the hexadecimal representation of the signed transaction.
+So in order to use our API, you have to sign your transaction on the client-side (your side) prior to calling our API and passing the hexadecimal representation of the signed transaction.
 
-We intend to provide a Golang library to help you sign your transaction on the client-side. Contributions will be welcome for other programming languages.
+We intend to provide a Golang library to help you sign your transaction on the client-side. Contributions are welcome for other programming languages.
 
-Also, you will have to pass the chains you want us to execute your transaction on.
+Also, you have to pass the chains you want us to execute your transaction on.
 
 Optionally, you can cast a vote for your most preferred forks.
 
@@ -95,7 +95,7 @@ So if you want to rank XBC 1st, XBN 2nd, XBS 3rd, you will need to write:
 
 ##### Response
 
-The API will send you a response containing your original hexadecimal representation of the signed transaction, the hash of your transaction as well as some info related to the chain it was excecuted on, the casted vote data and its signature.
+The API sends you a response containing your original hexadecimal representation of the signed transaction, the hash of your transaction as well as some info related to the chain it was excecuted on, the casted vote data and its signature.
 Note that block_height is the last block mined not the block that your transaction will be added to. See [model/Transaction](https://github.com/eminently/chopsticks/blob/master/model/Transaction.go) and [model/Vote](https://github.com/eminently/chopsticks/blob/master/model/Vote.go) to the full list of JSON attributes.
 
 ```json
@@ -120,9 +120,9 @@ Note that block_height is the last block mined not the block that your transacti
 
 ### Chopsticks Infrastructure
 
-We will run the 3+ different nodes and chopsticks API on AWS.
+We are running the 3+ different nodes and chopsticks API on AWS.
 
-[chopsticks.cash](https://api.chopsticks.cash) API will exclusively connect to these 3+ nodes that we will maintain.
+[chopsticks.cash](https://api.chopsticks.cash) API connects exclusively to these 3+ nodes that we maintain.
 
 
 ## Contribute To And Support The Project
