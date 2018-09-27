@@ -47,7 +47,7 @@ Here are the main features of [chopsticks.cash](https://api.chopsticks.cash) API
 2. cast your vote about your chain preference for example (XBC, XBN, XBS) by descending order of preference;
 3. give statistics to the community.
 
-API URL:  ```https://api.chopsticks.cash```
+API end-point:  [https://api.chopsticks.cash](https://api.chopsticks.cash)
 
 The API is live and you can start processing your transactions through it.
 
