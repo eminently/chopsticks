@@ -79,13 +79,15 @@
 
         var options =  {
 
+            allowedConnections: ['email'],
+            passwordlessMethod: 'code',
             oidcConformant: true,
             autoclose: true,
             languageDictionary: {
                 title: "chopsticks.cash",
                 error: {
                     login: {
-                        'lock.fallback' : "Invalid email or password, please retry. If you want to create an account, please use the 'register' button instead."
+                        'lock.fallback' : "Invalid email or password, please retry. If you want to create an account, please use the 'Sign Up' button instead."
                     },
                 }
             },
@@ -103,7 +105,7 @@
             }
         }
 
-        var lock = new Auth0Lock(
+        var lock = new Auth0LockPasswordless(
                 'je_O5kamu5zhMaeWGXcqPSp55F2bRHjm',
                 'chopsticks.auth0.com',
                 options
