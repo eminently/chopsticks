@@ -11,6 +11,10 @@
     <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
     <![endif]-->
+
+    <!-- Login/Register -->
+    <script src="https://cdn.auth0.com/js/lock/11.x.y/lock.min.js"></script>
+
 </head>
 <body>
     <div class="wrapper">
@@ -26,7 +30,7 @@
 
             <p>Stats: -</p>
 
-            <p>Get your token: -</p>
+            <p><a id="btn-login"><strong>Get your token</strong></a></p>
 
         </header>
 
@@ -72,10 +76,23 @@
 
     <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
 
+    <script>
+        var lock = new Auth0Lock(
+                'je_O5kamu5zhMaeWGXcqPSp55F2bRHjm',
+                'chopsticks.auth0.com'
+        );
+
+        document.getElementById('btn-login').addEventListener('click', function() {
+            lock.show();
+        });
+
+    </script>
+
     <!-- This line can go anywhere -->
     <script src="https://api.moneybutton.com/moneybutton.js"></script>
 
-    {% if site.google_analytics %}
+
+{% if site.google_analytics %}
     <script>
         (function (i, s, o, g, r, a, m) {
             i['GoogleAnalyticsObject'] = r;
