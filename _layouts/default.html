@@ -76,9 +76,37 @@
     <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
 
     <script>
+
+        var options =  {
+
+            oidcConformant: true,
+            autoclose: true,
+            languageDictionary: {
+                title: "chopsticks.cash",
+                error: {
+                    login: {
+                        'lock.fallback' : "Invalid email or password, please retry. If you want to create an account, please use the 'register' button instead."
+                    },
+                }
+            },
+            theme: {
+                logo: 'https://preview.ibb.co/ieGMWp/chopsticks_logo_transparent.png',
+                primaryColor: '#36ac32'
+            },
+            auth: {
+                redirect: true,
+                redirectUrl: "http://api.chopsticks.cash/login",
+                responseType: 'token id_token',
+                params: {
+                    scope: 'openid'
+                }
+            }
+        }
+
         var lock = new Auth0Lock(
                 'je_O5kamu5zhMaeWGXcqPSp55F2bRHjm',
-                'chopsticks.auth0.com'
+                'chopsticks.auth0.com',
+                options
         );
 
         document.getElementById('btn-login').addEventListener('click', function() {
