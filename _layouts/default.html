@@ -13,7 +13,7 @@
     <![endif]-->
 
     <!-- Login/Register -->
-    <script src="https://cdn.auth0.com/js/lock/11.x.y/lock.min.js"></script>
+    <script src="https://cdn.auth0.com/js/lock/11.10.0/lock.min.js"></script>
 
 </head>
 <body>
@@ -27,10 +27,9 @@
 
             </ul>
 
-
-            <p>Stats: -</p>
-
-            <p><button id="btn-login"><strong>Get your token</strong></button></p>
+            <ul class="downloads">
+                <li><a id="btn-login" href="#">Get Your <strong>Token</strong></a></li>
+            </ul>
 
         </header>
 
@@ -39,6 +38,10 @@
         </section>
 
         <footer>
+
+            <p><strong>Stats</strong>: <em>coming soon</em></p>
+
+
             {% if site.github.is_project_page %}
              <p>Crafted and maintained with ❤️ by <a target="_blank" href="https://eminent.ly">eminent.ly</a> 👌</p>
             {% endif %}
