@@ -79,6 +79,7 @@
     <script>
 
         var options =  {
+            configurationBaseUrl: 'https://cdn.auth0.com',
             hashCleanup: false,
             allowedConnections: ['email'],
             passwordlessMethod: 'email',
@@ -108,13 +109,13 @@
 
         var lock = new Auth0LockPasswordless(
                 'suhFH7RakFX9tEzSoPPtwcX8BgfwIjUt',
-                'eminently.auth0.com',
+                'auth.chopsticks.cash',
                 options
         );
 
         var auth0 = new auth0.WebAuth({
             clientID: 'suhFH7RakFX9tEzSoPPtwcX8BgfwIjUt',
-            domain: 'eminently.auth0.com'
+            domain: 'auth.chopsticks.cash'
         });
 
         document.getElementById('btn-login').addEventListener('click', function() {
