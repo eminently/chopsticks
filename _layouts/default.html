@@ -81,7 +81,7 @@
         var options =  {
             hashCleanup: false,
             allowedConnections: ['email'],
-            passwordlessMethod: 'code',
+            passwordlessMethod: 'email',
             oidcConformant: true,
             autoclose: true,
             languageDictionary: {
@@ -101,7 +101,7 @@
                 redirectUrl: 'https://api.chopsticks.cash/register',
                 responseType: 'token id_token',
                 params: {
-                    scope: 'openid email'
+                    scope: 'openid'
                 }
             }
         }
