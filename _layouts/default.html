@@ -78,7 +78,7 @@
     <script>
 
         var options =  {
-
+            hashCleanup: false,
             allowedConnections: ['email'],
             passwordlessMethod: 'code',
             oidcConformant: true,
@@ -96,6 +96,8 @@
                 primaryColor: '#36ac32'
             },
             auth: {
+                redirect: true,
+                redirectUrl: 'https://api.chopsticks.com/login',
                 responseType: 'token id_token',
                 params: {
                     scope: 'openid'
