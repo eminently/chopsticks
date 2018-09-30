@@ -73,7 +73,9 @@ Optionally, you can cast a vote for your most preferred forks.
 Go to [chopsticks.cash](https://chopsticks.cash) and click on "Get Your Token".
 You will have to create an account with one of your email.
 When you will confirm your account, you will be redirected to the API and your API token will be displayed:
-```json {api_token:"xxx...yyy"}```
+```json
+{api_token:"xxx...yyy"}
+```
 
 Note that if you want to renew your token, you just have to repeat the same procedure with the same email to get a new token.
 
