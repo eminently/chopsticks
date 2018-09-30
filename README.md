@@ -105,6 +105,7 @@ So if you want to rank XBC 1st, XBN 2nd, XBS 3rd, you will need to write:
   ...
   blockchains: ["XBC", "XBN", "XBS"],
   voting: true
+  ...
 }
 ```
 
