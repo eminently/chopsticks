@@ -12,4 +12,3 @@ package model
 const BLOCKCHAIN_TYPE_XBC_MAINNET = "XBC" // Bitcoin ABC / Bitcoin Unlimited
 const BLOCKCHAIN_TYPE_XBS_MAINNET = "XBS" // Bitcoin BSV
 const BLOCKCHAIN_TYPE_XBN_MAINNET = "XBN" // Bitcoin NayBC
-
