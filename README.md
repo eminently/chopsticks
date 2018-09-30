@@ -109,10 +109,10 @@ So if you want to rank XBC 1st, XBN 2nd, XBS 3rd, you will need to write:
 }
 ```
 
-Note that post-fork, you will be able to only process transaction to all chains:
-- with coins acquired pre-fork if hashing-based replay protection is added
-- that do not use new OP_CODES that were not exiting pre-fork and are not universally implemented post-fork. In this case, the API
-will only be able to push your transactions on some of the nodes.
+Note that post-fork, you will be able to only process your transaction to every chains:
+- using coins acquired (UTXO) pre-fork if hashing-based replay protection is added
+- which does not use new `OP_CODES that were not exiting pre-fork and are not universally implemented post-fork. In this case, the API
+will only be able to push your transaction on some of the nodes.
 
 ##### Response
 
