@@ -82,7 +82,7 @@
             configurationBaseUrl: 'https://cdn.auth0.com',
             hashCleanup: false,
             allowedConnections: ['email'],
-            passwordlessMethod: 'email',
+            passwordlessMethod: 'code',
             oidcConformant: true,
             autoclose: true,
             languageDictionary: {
@@ -103,7 +103,7 @@
                 responseType: 'token id_token',
                 responseMode: 'form_post',
                 params: {
-                    scope: 'openid'
+                    scope: 'openid profile email'
                 }
             }
         }
