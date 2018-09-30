@@ -8,7 +8,7 @@
  */
 package model
 
-import "chopsticks/errors"
+import "github.com/chopsticks/errors"
 
 type Transaction struct {
 	DataVersion  int              `json:"data_version"`
@@ -30,6 +30,7 @@ type TransactionRequest struct {
 	TxHex       string   `json:"tx_hex"`
 	Blockchains []string `json:"blockchains,omitempty"`
 	Voting      bool     `json:"voting,omitempty"`
+	ApiToken    string   `json:"api_token"`
 }
 
 type TransactionResponse struct {

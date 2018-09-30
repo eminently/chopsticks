@@ -10,10 +10,6 @@ package client
 
 import (
 	"bytes"
-	"github.com/chopsticks/common"
-	"github.com/chopsticks/errors"
-	"github.com/chopsticks/model"
-	"github.com/chopsticks/network"
 	"encoding/hex"
 	"encoding/json"
 	"fmt"
@@ -23,12 +19,15 @@ import (
 	"github.com/btcsuite/btcd/txscript"
 	"github.com/btcsuite/btcd/wire"
 	"github.com/btcsuite/btcutil"
+	"github.com/chopsticks/common"
+	"github.com/chopsticks/errors"
+	"github.com/chopsticks/model"
+	"github.com/chopsticks/network"
 	"github.com/cpacia/bchutil"
 	"strings"
 )
 
-const CHOPSTICKS_API_URL = "https://api.chopsticks.cash"
-
+const CHOPSTICKS_API_URL = "http://api.chopsticks.cash"
 
 /**
  * This method creates a Bitcoin Cash transaction and sign it
@@ -41,7 +40,7 @@ const CHOPSTICKS_API_URL = "https://api.chopsticks.cash"
  * 	- utxoSourceAmount: total unspent amount of satoshis (balance) available in the source UTXO
  */
 func CreateBitcoinCashTransaction(privateKey string, recipientAddress string, amount int64, fee int64,
-							utxoSourceHash string, utxoSourceIndex uint32, utxoSourceAmount int64) (*model.Transaction, error) {
+	utxoSourceHash string, utxoSourceIndex uint32, utxoSourceAmount int64) (*model.Transaction, error) {
 
 	transaction := model.Transaction{}
 
@@ -71,7 +70,6 @@ func CreateBitcoinCashTransaction(privateKey string, recipientAddress string, am
 	if err != nil && serialBtc == nil {
 		return &transaction, err
 	}
-
 
 	// initialize source tx from utxoSourceHash (unspent UTXO)
 	sourceTx := wire.NewMsgTx(wire.TxVersion)
@@ -118,7 +116,7 @@ func CreateBitcoinCashTransaction(privateKey string, recipientAddress string, am
 	redeemTx.AddTxIn(txIn)
 
 	// load destination address
-	destinationAddress, err  := bchutil.DecodeAddress(recipientAddress,  &chaincfg.MainNetParams)
+	destinationAddress, err := bchutil.DecodeAddress(recipientAddress, &chaincfg.MainNetParams)
 
 	if err != nil {
 		fmt.Println(err)
@@ -177,12 +175,13 @@ func CreateBitcoinCashTransaction(privateKey string, recipientAddress string, am
 	return &transaction, nil
 }
 
-func SendRawTransactionToChopsticks(signedTxHex string, chains []string, voting bool) (*model.TransactionResponse, *errors.AppError){
+func SendRawTransactionToChopsticks(signedTxHex string, chains []string, voting bool, apiToken string) (*model.TransactionResponse, *errors.AppError) {
 
 	request := model.TransactionRequest{}
 	request.TxHex = signedTxHex
 	request.Blockchains = chains
 	request.Voting = voting
+	request.ApiToken = apiToken
 
 	bytes, err := json.Marshal(&request)
 
@@ -202,7 +201,7 @@ func SendRawTransactionToChopsticks(signedTxHex string, chains []string, voting 
 	errD := dec.Decode(&response)
 
 	if errD != nil {
-		return  nil, errors.NewAppError(nil, "cannot parse transaction response: "+string(trxData), -1, nil)
+		return nil, errors.NewAppError(nil, "cannot parse transaction response: "+string(trxData), -1, nil)
 	}
 
 	return &response, nil
