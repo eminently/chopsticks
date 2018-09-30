@@ -27,7 +27,7 @@ import (
 	"strings"
 )
 
-const CHOPSTICKS_API_URL = "http://api.chopsticks.cash"
+const CHOPSTICKS_API_URL = "https://api.chopsticks.cash"
 
 /**
  * This method creates a Bitcoin Cash transaction and sign it
