@@ -68,6 +68,17 @@ Also, you have to pass the chains you want us to execute your transaction on.
 Optionally, you can cast a vote for your most preferred forks.
 
 
+##### Get an API token
+
+Go to [chopsticks.cash](https://chopsticks.cash) and click on "Get Your Token".
+You will have to create an account with one of your email.
+When you will confirm your account, you will be redirected to the API and your API token will be displayed:
+```json {api_token:"xxx...yyy"}```
+
+Note that if you want to renew your token, you just have to repeat the same procedure with the same email to get a new token.
+
+This token must be passed within all your API request (see example below).
+
 ##### Request
  
 ```
@@ -78,7 +89,8 @@ POST /api/transactions
 { 
   tx_hex: "aaaa...bbb", 
   blockchains: ["XBC", "XBS", "XBN"],
-  voting: false
+  voting: false,
+  api_token: "xxx...yyy"
 }
 ```
 
