@@ -57,7 +57,7 @@ The API is live and you can start processing your transactions through it.
 We decided to provide only one way for you to send us your transaction: a raw signed transaction (see:
 ```createrawtransaction``` and ```signrawtransaction``` commands of [bitcoin-cli](https://en.bitcoin.it/wiki/Raw_Transactions#createrawtransaction_.5B.7B.22txid.22:txid.2C.22vout.22:n.7D.2C....5D_.7Baddress:amount.2C....7D)).
 
-In fact, we don't want you to pass your private key to our API, even if it is encrypted, for the security of your funds. 
+In fact, we prefer you not to pass your private key to our API, even if it is encrypted, for the maximum security of your funds.
 
 So in order to use our API, you have to sign your transaction on the client-side (your side) prior to calling our API and passing the hexadecimal representation of the signed transaction.
 
@@ -109,7 +109,10 @@ So if you want to rank XBC 1st, XBN 2nd, XBS 3rd, you will need to write:
 }
 ```
 
-Note that post-fork, you will be able to only process transaction to every chains with coins acquired pre-fork.
+Note that post-fork, you will be able to only process transaction to every chains
+- with coins acquired pre-fork if hashing based replay protection is added
+- that do not use new OP_CODES that were not exiting pre-fork and not universally implemented. In this case, the API
+will only be able to push your transactions on some of the nodes.
 
 ##### Response
 
@@ -141,6 +144,8 @@ occur per Bitcoin protocol specification, it will just be repeated by the 3 node
 ### Chopsticks Infrastructure
 
 We are running the 3+ different nodes and chopsticks API on AWS.
+
+We are planning to support *Bitcoin Unlimited*, *Bitcoin XT* and *gcash/bchd*. Don't hesitate to ask us to integrate others.
 
 [chopsticks.cash](https://api.chopsticks.cash) API connects exclusively to these 3+ nodes that we maintain.
 
