@@ -54,10 +54,11 @@ The API is live and you can start processing your transactions through it.
 
 #### 1. Send a raw transaction to all chains' node
 
-We decided to provide only one way for you to send us your transaction: a raw signed transaction (see:
+We provide only one way for you to send us your transaction: a raw signed transaction (see:
 ```createrawtransaction``` and ```signrawtransaction``` commands of [bitcoin-cli](https://en.bitcoin.it/wiki/Raw_Transactions#createrawtransaction_.5B.7B.22txid.22:txid.2C.22vout.22:n.7D.2C....5D_.7Baddress:amount.2C....7D)).
 
 In fact, we prefer you not to pass your private key to our API, even if it is encrypted, for the maximum security of your funds.
+If replay protection is added we will add new features.
 
 So in order to use our API, you have to sign your transaction on the client-side (your side) prior to calling our API and passing the hexadecimal representation of the signed transaction.
 
