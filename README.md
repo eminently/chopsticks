@@ -8,13 +8,15 @@ If you are afraid of Bitcoin Cash [forks](https://en.wikipedia.org/wiki/List_of_
 Sadly, the probability that the BitcoinCash (BCH/XBC) community will have to deal with a contentious fork on November 15th, 2018 is pretty high at this point.
 
 Here is the list of the contentious forks that have been announced in the past weeks:
-- **Bitcoin ABC** (BCH/XBC) maintained by Bitcoin ABC & bcoin-org/bcash which is basically the original and historical Bitcoin Cash chain that is going to be changed with new concensus rules [[more info](https://bitcoinabc.org)];
-- **Bitcoin SV** (BCH/XBS) maintained by nChain which is basically the contentious fork who wants to push different consensus rule changes [[more info](https://github.com/bitcoin-sv)];
-- **Bitcoin NayBC** (BCH/XBN) maintained by Tom Harding which is basically the chain of the naysayers to both of the proposed forks and who want to stay on the current chain [[more info](https://github.com/dgenr8/bitcoin-abc)].
+- [Bitcoin ABC](https://www.bitcoinabc.org) (BCH/XBC) maintained by Bitcoin ABC & bcoin-org/bcash which is basically the original and historical Bitcoin Cash chain that is going to be changed with new concensus rules [[more info](https://bitcoinabc.org)];
+- [Bitcoin SV](https://github.com/bitcoin-sv/bitcoin-sv) (BCH/XBS) maintained by nChain which is basically the contentious fork who wants to push different consensus rule changes [[more info](https://github.com/bitcoin-sv)];
+- [Bitcoin NayBC]( (BCH/XBN) maintained by Tom Harding which is basically the chain of the naysayers to both of the proposed forks and who want to stay on the current chain [[more info](https://github.com/dgenr8/bitcoin-abc)].
 
 Additional implementations:
-- **Bitcoin Unlimited** is not yet mentioned as strictly compatible to XBC nor XBS nor XBN [[more info](https://www.bitcoincash.org)]. They are committed to avoiding a split, hence following the dominant chain. Also, they allowed each consensus rule change to be assessed independently and activated independently.
-- The above applies to **Bitcoin XT** also maintained by Tom Harding.
+- **Bitcoin Unlimited** (BCH/XBU) is not yet mentioned as strictly compatible to XBC nor XBS nor XBN [[more info](https://www.bitcoincash.org)]. They are committed to avoiding a split, hence following the dominant chain. Also, they allowed each consensus rule change to be assessed independently and activated independently.
+- **Bitcoin XT** (BCH/XBX) idem, also maintained by Tom Harding.
+- **Gcash BCHD** (BCH/XBD) btsuite/btcd fork, maintained by Chris Pacia, follows Bitcoin ABC consensus rule
+- **Bcoin bcash** (BCH/XBB) follows Bitcoin ABC consensus rule
 
 Final note:
 This list may evolve and will be updated if any new announcement is made by the community.
@@ -43,13 +45,15 @@ And finally, we will see how things will go and which chain(s) the market will d
 ### Chopsticks API
 
 Here are the main features of [chopsticks.cash](https://api.chopsticks.cash) API:
-1. take your pre-signed transaction (POST request) and execute your transaction on the 3+ chains;
+1. take your pre-signed transaction (POST request) and execute your transaction on the 6+ chains;
 2. cast your vote about your chain preference for example (XBC, XBN, XBS) by descending order of preference;
 3. give statistics to the community.
 
 API end-point:  [https://api.chopsticks.cash](https://api.chopsticks.cash)
 
 The API is live and you can start processing your transactions through it.
+
+
 
 
 #### 1. Send a raw transaction to all chains' node
@@ -91,7 +95,7 @@ POST /api/transactions
 ```json
 { 
   tx_hex: "aaaa...bbb", 
-  blockchains: ["XBC", "XBS", "XBN"],
+  blockchains: ["XBC", "XBS", "XBN", "XBU"],
   voting: false,
   api_token: "xxx...yyy"
 }
@@ -104,13 +108,15 @@ So if you want to rank XBC 1st, XBN 2nd, XBS 3rd, you will need to write:
 ```json
 { 
   ...
-  blockchains: ["XBC", "XBN", "XBS"],
+  blockchains: ["XBC", "XBN", "XBS", "XBU"],
   voting: true
   ...
 }
 ```
 
-Note that post-fork, you will be able to only process your transaction to every chains:
+Note that voting for XBD will count as vote for XBC as well since there are following the same consensus rules.
+
+Also post-fork, you will be able to only process your transaction to every chains:
 - using coins acquired (UTXO) pre-fork if hashing-based replay protection is added
 - which does not use new `OP_CODES that were not exiting pre-fork and are not universally implemented post-fork. In this case, the API
 will only be able to push your transaction on some of the nodes.
@@ -124,13 +130,14 @@ Note that block_height is the last block mined not the block that your transacti
 { 
   tx_hex: "aaaa...bbb", 
   transactions: [
-    { blockchain_type:"XBC", hash: "aaa...bbb", blockchain_version:"v0.18.2.0-unk", block_height:555555, ... },
+    { blockchain_type:"XBC", hash: "aaa...bbb", blockchain_version:"0.18.2.0-unk", block_height:555555, ... },
     { blockchain_type:"XBS", hash: "aaa...bbb", blockchain_version:"0.1.0.0-beta-200015661", block_height:555555, ... },
-    { blockchain_type:"XBN", hash: "aaa...bbb", blockchain_version:"v0.17.2.0-5210f8f46", block_height:555555, ... }
+    { blockchain_type:"XBN", hash: "aaa...bbb", blockchain_version:"0.17.2.0-5210f8f46", block_height:555555, ... },
+    { blockchain_type:"XBU", hash: "aaa...bbb", blockchain_version:"1.4.0.0", block_height:555555, ... },
   ],
   vote: {
     uuid: "1234-...-accd",
-    preferredChains: ["XBC", "XBN", "XBS"],
+    preferredChains: ["XBC", "XBN", "XBS", "XBU"],
     created: 123456789,
     ...
   },
@@ -144,11 +151,15 @@ occur per Bitcoin protocol specification, it will just be repeated by the 3 node
 
 ### Chopsticks Infrastructure
 
-We are running the 3+ different nodes and chopsticks API on AWS.
+We are running the different nodes and chopsticks API on AWS.
+
+Currently XBC, XBN, XBS, XBU are operational.
+
+The other nodes XBD, XBT, XBB will be released soon, we will update this documentation as soon as there will be available.
 
 We are planning to support *Bitcoin Unlimited*, *Bitcoin XT* and *gcash/bchd*. Don't hesitate to ask us to integrate others.
 
-[chopsticks.cash](https://api.chopsticks.cash) API connects exclusively to these 3+ nodes that we maintain.
+[chopsticks.cash](https://api.chopsticks.cash) API connects exclusively to these 6+ nodes that we maintain.
 
 
 ## Contribute To And Support The Project
