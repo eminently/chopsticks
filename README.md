@@ -146,8 +146,8 @@ Note that block_height is the last block mined not the block that your transacti
 }
 ```
 
-Note that pre-fork, your transaction will be sent to the 3 nodes. But, you don't have to worry double spend will not
-occur per Bitcoin protocol specification, it will just be repeated by the 3 nodes.
+Note that pre-fork, your transaction will be sent the different nodes you selected. You don't have to worry double spend will not
+occur per Bitcoin protocol specification, it will just be repeated/relayed by all the nodes.
 
 ### Chopsticks Infrastructure
 
