@@ -36,7 +36,7 @@ type TransactionRequest struct {
 type TransactionResponse struct {
 	TxHex         string            `json:"tx_hex"`
 	Transactions  []Transaction     `json:"transactions,omitempty"`
-	Vote          *Vote             `json:"vote,omitempty"`
+	Vote          Vote              `json:"vote,omitempty"`
 	VoteSignature string            `json:"vote_signature,omitempty"`
 	Errors        []errors.AppError `json:"errors,omitempty"`
 }
