@@ -118,8 +118,8 @@ Note that voting for XBD will count as vote for XBC as well since there are foll
 
 Also post-fork, you will be able to only process your transaction to every chains:
 - using coins acquired (UTXO) pre-fork if hashing-based replay protection is added
-- which does not use new `OP_CODES that were not exiting pre-fork and are not universally implemented post-fork. In this case, the API
-will only be able to push your transaction on some of the nodes.
+- or future spendable output which does not use new opcodes that were not existing pre-fork and are not universally implemented post-fork. In this case, the API
+will only be able to push your transaction to some of the nodes.
 
 ##### Response
 
