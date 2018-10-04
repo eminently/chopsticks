@@ -157,7 +157,7 @@ Currently XBC, XBN, XBS, XBU are operational.
 
 The other nodes XBD, XBT, XBB will be released soon, we will update this documentation as soon as there will be available.
 
-We are planning to support *Bitcoin Unlimited*, *Bitcoin XT* and *gcash/bchd*. Don't hesitate to ask us to integrate others.
+Don't hesitate to ask us to integrate others.
 
 [chopsticks.cash](https://api.chopsticks.cash) API connects exclusively to these 6+ nodes that we maintain.
 
