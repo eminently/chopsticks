@@ -11,10 +11,10 @@ package errors
 import "fmt"
 
 type AppError struct {
-	Error   error
-	Message string
-	Code    int
-	Custom  interface{}
+	Error   error		`json:"-"`
+	Message string		`json:"message,omitempty"`
+	Code    int			`json:"code,omitempty"`
+	Custom  interface{}	`json:"-"`
 }
 
 func NewAppError(error error, message string, code int64, custom interface{}) *AppError {
