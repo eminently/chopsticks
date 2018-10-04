@@ -8,12 +8,12 @@ If you are afraid of Bitcoin Cash [forks](https://en.wikipedia.org/wiki/List_of_
 Sadly, the probability that the BitcoinCash (BCH/XBC) community will have to deal with a contentious fork on November 15th, 2018 is pretty high at this point.
 
 Here is the list of the contentious forks that have been announced in the past weeks:
-- [Bitcoin ABC](https://www.bitcoinabc.org) (BCH/XBC) maintained by Bitcoin ABC & bcoin-org/bcash which is basically the original and historical Bitcoin Cash chain that is going to be changed with new concensus rules [[more info](https://bitcoinabc.org)];
-- [Bitcoin SV](https://github.com/bitcoin-sv/bitcoin-sv) (BCH/XBS) maintained by nChain which is basically the contentious fork who wants to push different consensus rule changes [[more info](https://github.com/bitcoin-sv)];
-- [Bitcoin NayBC](https://github.com/dgenr8/bitcoin-abc/commits/NayBC-0.17.2) (BCH/XBN) maintained by Tom Harding which is basically the chain of the naysayers to both of the proposed forks and who want to stay on the current chain [[more info](https://github.com/dgenr8/bitcoin-abc)].
+- [Bitcoin ABC](https://www.bitcoinabc.org) (BCH/XBC) maintained by Bitcoin ABC & bcoin-org/bcash which is basically the original and historical Bitcoin Cash chain that is going to be changed with new concensus rules ;
+- [Bitcoin SV](https://github.com/bitcoin-sv/bitcoin-sv) (BCH/XBS) maintained by nChain which is basically the contentious fork who wants to push different consensus rule changes;
+- [Bitcoin NayBC](https://github.com/dgenr8/bitcoin-abc/commits/NayBC-0.17.2) (BCH/XBN) maintained by Tom Harding which is basically the chain of the naysayers to both of the proposed forks and who want to stay on the current chain.
 
 Additional implementations:
-- [Bitcoin Unlimited](https://www.bitcoinunlimited.info/) (BCH/XBU) is not yet mentioned as strictly compatible to XBC nor XBS nor XBN [[more info](https://www.bitcoincash.org)]. They are committed to avoiding a split, hence following the dominant chain. Also, they allowed each consensus rule change to be assessed independently and activated independently;
+- [Bitcoin Unlimited](https://www.bitcoinunlimited.info/) (BCH/XBU) is not yet mentioned as strictly compatible to XBC nor XBS nor XBN. They are committed to avoiding a split, hence following the dominant chain. Also, they allowed each consensus rule change to be assessed independently and activated independently;
 - [Bitcoin XT](https://bitcoinxt.software/) (BCH/XBX) idem, also maintained by Tom Harding;
 - [Gcash/bchd](https://github.com/gcash/bchd) (BCH/XBD) golang implementation, btsuite/btcd fork, maintained by Chris Pacia, follows Bitcoin ABC consensus rule;
 - [Bcoin/bcash](https://github.com/bcoin-org/bcash) (BCH/XBB) node.js implementation, follows Bitcoin ABC consensus rule.
