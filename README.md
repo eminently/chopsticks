@@ -40,9 +40,7 @@ Bitcoin Cash application developers will be able to operate their business norma
 And finally, we will see how things will go and which chain(s) the market will decide to support, and which one to continue operating on.
 
 
-## Technical architecture
-
-### Chopsticks API
+## Chopsticks API
 
 Here are the main features of [chopsticks.cash](https://api.chopsticks.cash) API:
 - take your pre-signed transaction (POST request) and execute your transaction on the 6+ chains;
@@ -55,7 +53,7 @@ API end-point:  [https://api.chopsticks.cash](https://api.chopsticks.cash)
 The API is live and you can start processing your transactions through it.
 
 
-#### Get an API token
+### Get an API token
 
 Go to [chopsticks.cash](https://chopsticks.cash) and click on "Get Your Token".
 You will have to create an account with one of your email.
@@ -75,7 +73,7 @@ Authorization: User xxx...yyy
 We are providing a Golang library to help you sign your transaction on the client-side. Contributions are welcome for other programming languages.
 
 
-#### Send a raw transaction to all chains' nodes and cast a vote
+### Send a raw transaction to all chains' nodes and cast a vote
 
 We provide only one way for you to send us your transaction: a raw signed transaction (see:
 ```createrawtransaction``` and ```signrawtransaction``` commands of [bitcoin-cli](https://en.bitcoin.it/wiki/Raw_Transactions#createrawtransaction_.5B.7B.22txid.22:txid.2C.22vout.22:n.7D.2C....5D_.7Baddress:amount.2C....7D)).
@@ -89,7 +87,7 @@ Also, you have to pass the chains you want us to execute your transaction on.
 
 Optionally, you can cast a vote for your most preferred forks.
 
-##### Request
+#### Request
  
 ```
 POST /api/transactions
@@ -123,7 +121,7 @@ Also post-fork, you will be able to only process your transaction to every chain
 - or future spendable output which does not use new opcodes that were not existing pre-fork and are not universally implemented post-fork. In this case, the API
 will only be able to push your transaction to some of the nodes.
 
-##### Response
+#### Response
 
 The API sends you a response containing your original hexadecimal representation of the signed transaction, the hash of your transaction as well as some info related to the chain it was excecuted on, the casted vote data and its signature.
 Note that block_height is the last block mined not the block that your transaction will be added to. See [model/Transaction](https://github.com/eminently/chopsticks/blob/master/model/Transaction.go) and [model/Vote](https://github.com/eminently/chopsticks/blob/master/model/Vote.go) to the full list of JSON attributes.
@@ -151,9 +149,9 @@ Note that block_height is the last block mined not the block that your transacti
 Note that pre-fork, your transaction will be sent the different nodes you selected. You don't have to worry double spend will not
 occur per Bitcoin protocol specification, it will just be repeated/relayed by all the nodes.
 
-#### Retrieve a transaction by hash
+### Retrieve a transaction by hash
 
-##### Request
+#### Request
 Simply pass the hash within the URL.
 
 ```
@@ -162,7 +160,7 @@ GET /api/transactions/{hash}
 
 For example: /api/transactions/aaaa...bbb
 
-##### Response
+#### Response
 
 The API will send you the transaction retrieved from each node like:
 
@@ -179,7 +177,7 @@ The API will send you the transaction retrieved from each node like:
 ```
 
 
-### Chopsticks Infrastructure
+## Chopsticks Cloud Infrastructure
 
 We are running the different nodes and chopsticks API on AWS.
 
