@@ -18,7 +18,7 @@ import (
 )
 
 // simple HTTP GET request taking some URL params
-func Get(_url string, _params map[string]string) ([]byte, *errors.AppError) {
+func Get(_url string, _params map[string]string, token string) ([]byte, *errors.AppError) {
 
 	baseUrl, err := url.Parse(_url)
 
@@ -44,6 +44,8 @@ func Get(_url string, _params map[string]string) ([]byte, *errors.AppError) {
 	//fmt.Println("network.HTTP GET URL: ", baseUrl.String())
 
 	req, _ := http.NewRequest("GET", baseUrl.String(), strings.NewReader(""))
+
+	req.Header.Add("Authorization", "User "+token)
 
 	res, err := http.DefaultClient.Do(req)
 
@@ -115,7 +117,7 @@ func Post(url string, keyValues map[string]interface{}, bytes []byte) ([]byte, *
 }
 
 // simple HTTP JSON post request taking data as JSON body
-func PostRawData(url string, raw string) ([]byte, *errors.AppError) {
+func PostRawData(url string, raw string, token string) ([]byte, *errors.AppError) {
 
 	//fmt.Println("post raw data: " + raw)
 
@@ -127,6 +129,7 @@ func PostRawData(url string, raw string) ([]byte, *errors.AppError) {
 	req, _ := http.NewRequest("POST", url, strings.NewReader(raw))
 
 	req.Header.Add("content-type", "application/json")
+	req.Header.Add("Authorization", "User "+token)
 
 	res, err := http.DefaultClient.Do(req)
 

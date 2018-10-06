@@ -27,9 +27,9 @@ var (
 
 	recipientAddress = "qzuw0upmzk83lupq86lc6l62znpqs3k6svtf292dql" // CHANGE IT !!!! or keep it if you want to DONATE amount to eminent.ly
 
-	utxoSource        = "d9d3d298878b1ee4f20951c7d1ee267ea18ddc5276b83d015774ba6f01846b9a" // CHANGE IT !! this is an example of source UTXO
-	utxoIndex  uint32 = 1                                                                  // CHANGE IT !!  this is an example of source UTXO
-	utxoValue  int64  = 28314                                                              // CHANGE IT !!  this is an example of source UTXO
+	utxoSource        = "d9f01d93b215ac701c7f9a56c8d5d1bdf2e0498047da81d3bf6fc23a2ee3bbb5" // CHANGE IT !! this is an example of source UTXO
+	utxoIndex  uint32 = 1                                                                 // CHANGE IT !!  this is an example of source UTXO
+	utxoValue  int64  = 32114                                                              // CHANGE IT !!  this is an example of source UTXO
 
 	signedHex = "" // CHANGE IT !!  if you want to run TestBchSendRawTransaction without TestClientCreateBitcoinCashTransaction
 
@@ -39,6 +39,18 @@ var (
 )
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+func TestGetBitcoinCashTransaction(t *testing.T) {
+
+	response, err := GetTransaction(utxoSource, apiToken)
+
+	assert.Nil(t, err, "shoult not report any")
+
+	data, _ := json.Marshal(response)
+
+	fmt.Println("transactions retrieved: ", string(data))
+
+}
 
 func TestClientCreateBitcoinCashTransaction(t *testing.T) {
 
@@ -65,8 +77,9 @@ func TestBchSendRawTransaction(t *testing.T) {
 	response, err := SendRawTransactionToChopsticks(transaction.SignedTx,
 		[]string{
 			model.BLOCKCHAIN_TYPE_XBC_MAINNET, // your first choice
-			model.BLOCKCHAIN_TYPE_XBS_MAINNET, // your second choice
-			model.BLOCKCHAIN_TYPE_XBN_MAINNET, // your third choice
+			model.BLOCKCHAIN_TYPE_XBU_MAINNET, // your second choice
+			model.BLOCKCHAIN_TYPE_XBS_MAINNET, // your third choice
+			model.BLOCKCHAIN_TYPE_XBN_MAINNET,
 		},
 		true,
 		apiToken)
