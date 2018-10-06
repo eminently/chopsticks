@@ -84,7 +84,11 @@ When you will confirm your account, you will be redirected to the API and your A
 
 Note that if you want to renew your token, you just have to repeat the same procedure with the same email to get a new token.
 
-This token must be passed within all your API request (see example below).
+
+You MUST pass this token in all your HTTPS GET and POST requests via an *Authorization* header:
+```json
+Authorization: User xxx...yyy
+```
 
 ##### Request
  
@@ -96,8 +100,7 @@ POST /api/transactions
 { 
   tx_hex: "aaaa...bbb", 
   blockchains: ["XBC", "XBS", "XBN", "XBU"],
-  voting: false,
-  api_token: "xxx...yyy"
+  voting: false
 }
 ```
 
