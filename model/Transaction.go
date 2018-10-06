@@ -27,14 +27,13 @@ type Transaction struct {
 }
 
 type TransactionRequest struct {
-	TxHex       string   `json:"tx_hex"`
+	TxHex       string   `json:"tx_hex,omitempty"`
 	Blockchains []string `json:"blockchains,omitempty"`
 	Voting      bool     `json:"voting,omitempty"`
-	ApiToken    string   `json:"api_token"`
 }
 
 type TransactionResponse struct {
-	TxHex         string            `json:"tx_hex"`
+	TxHex         string            `json:"tx_hex,omitempty""`
 	Transactions  []Transaction     `json:"transactions,omitempty"`
 	Vote          Vote              `json:"vote,omitempty"`
 	VoteSignature string            `json:"vote_signature,omitempty"`
