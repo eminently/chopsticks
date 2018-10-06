@@ -47,13 +47,12 @@ And finally, we will see how things will go and which chain(s) the market will d
 Here are the main features of [chopsticks.cash](https://api.chopsticks.cash) API:
 1. take your pre-signed transaction (POST request) and execute your transaction on the 6+ chains;
 2. cast your vote about your chain preference for example (XBC, XBN, XBS) by descending order of preference;
-3. give statistics to the community.
+3. retrieve a transaction by hash from all the nodes;
+4. give statistics to the community
 
 API end-point:  [https://api.chopsticks.cash](https://api.chopsticks.cash)
 
 The API is live and you can start processing your transactions through it.
-
-
 
 
 #### 1. Send a raw transaction to all chains' node
@@ -90,7 +89,9 @@ You MUST pass this token in all your HTTPS GET and POST requests via an *Authori
 Authorization: User xxx...yyy
 ```
 
-##### Request
+##### Send a raw transaction
+
+###### Request
  
 ```
 POST /api/transactions
@@ -124,7 +125,7 @@ Also post-fork, you will be able to only process your transaction to every chain
 - or future spendable output which does not use new opcodes that were not existing pre-fork and are not universally implemented post-fork. In this case, the API
 will only be able to push your transaction to some of the nodes.
 
-##### Response
+###### Response
 
 The API sends you a response containing your original hexadecimal representation of the signed transaction, the hash of your transaction as well as some info related to the chain it was excecuted on, the casted vote data and its signature.
 Note that block_height is the last block mined not the block that your transaction will be added to. See [model/Transaction](https://github.com/eminently/chopsticks/blob/master/model/Transaction.go) and [model/Vote](https://github.com/eminently/chopsticks/blob/master/model/Vote.go) to the full list of JSON attributes.
@@ -151,6 +152,34 @@ Note that block_height is the last block mined not the block that your transacti
 
 Note that pre-fork, your transaction will be sent the different nodes you selected. You don't have to worry double spend will not
 occur per Bitcoin protocol specification, it will just be repeated/relayed by all the nodes.
+
+##### Retrieve a transaction by hash
+
+###### Request
+Simply pass the hash within the URL.
+
+```
+GET /api/transactions/{hash}
+```
+
+For example: /api/transactions/aaaa...bbb
+
+###### Response
+
+The API will send you the transaction retrieved from each node like:
+
+```json
+{
+  transactions: [
+    { blockchain_type:"XBC", hash: "aaa...bbb", blockchain_version:"0.18.2.0-unk", block_height:555555, ... },
+    { blockchain_type:"XBS", hash: "aaa...bbb", blockchain_version:"0.1.0.0-beta-200015661", block_height:555555, ... },
+    { blockchain_type:"XBN", hash: "aaa...bbb", blockchain_version:"0.17.2.0-5210f8f46", block_height:555555, ... },
+    { blockchain_type:"XBU", hash: "aaa...bbb", blockchain_version:"1.4.0.0", block_height:555555, ... },
+  ]
+  errors: []
+}
+```
+
 
 ### Chopsticks Infrastructure
 
