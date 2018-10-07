@@ -226,3 +226,42 @@ func GetTransaction(hash string, apiToken string) (*model.TransactionResponse, *
 
 	return &response, nil
 }
+
+
+func GetRawMempools(apiToken string) (*model.MempoolsResponse, *errors.AppError){
+	data, appErr := network.Get(CHOPSTICKS_API_URL+"/blockchains/mempool", nil, apiToken )
+
+	if appErr != nil {
+		return nil, appErr
+	}
+
+	response := model.MempoolsResponse{}
+
+	dec := json.NewDecoder(strings.NewReader(string(data)))
+	errD := dec.Decode(&response)
+
+	if errD != nil {
+		return nil, errors.NewAppError(nil, "cannot parse mempools tesponse response: "+string(data), -1, nil)
+	}
+
+	return &response, nil
+}
+
+func GetMiningInfos(apiToken string) (*model.MiningInfosResponse, *errors.AppError){
+	data, appErr := network.Get(CHOPSTICKS_API_URL+"/blockchains/miningInfo", nil, apiToken )
+
+	if appErr != nil {
+		return nil, appErr
+	}
+
+	response := model.MiningInfosResponse{}
+
+	dec := json.NewDecoder(strings.NewReader(string(data)))
+	errD := dec.Decode(&response)
+
+	if errD != nil {
+		return nil, errors.NewAppError(nil, "cannot parse mining info response: "+string(data), -1, nil)
+	}
+
+	return &response, nil
+}

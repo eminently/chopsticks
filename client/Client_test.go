@@ -52,6 +52,30 @@ func TestGetBitcoinCashTransaction(t *testing.T) {
 
 }
 
+func TestGetRawMempool(t *testing.T) {
+
+	response, err := GetRawMempools(apiToken)
+
+	data, _ := json.Marshal(response)
+
+	fmt.Println("response data: ", string(data))
+
+	assert.Nil(t, err, "shoult not report any")
+
+}
+
+func TestGetMiningInfo(t *testing.T) {
+
+	response, err := GetMiningInfos(apiToken)
+
+	data, _ := json.Marshal(response)
+
+	fmt.Println("response data: ", string(data))
+
+	assert.Nil(t, err, "shoult not report any")
+
+}
+
 func TestClientCreateBitcoinCashTransaction(t *testing.T) {
 
 	var err error

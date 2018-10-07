@@ -176,6 +176,58 @@ The API will send you the transaction retrieved from each node like:
 }
 ```
 
+### Retrieve Mempool Stats
+
+#### Request
+
+```
+GET /api/blockchains/mempool
+```
+
+#### Response
+
+The API will send you the raw mempool retrieved from each node within [model/MempoolsResponse](https://github.com/eminently/chopsticks/blob/master/model/Blockchain.go) json object:
+
+```json
+{
+  mempools: [
+    { blockchain_type:"XBC", blockchain_version:"0.18.2.0-unk", transactions:{ "aaa...bbb": {...}} },
+    { blockchain_type:"XBS", blockchain_version:"0.1.0.0-beta-200015661", transactions:{ "aaa...bbb": {...}} },
+    { blockchain_type:"XBN", blockchain_version:"0.17.2.0-5210f8f46", transactions:{ "aaa...bbb": {...}} },
+    { blockchain_type:"XBU", blockchain_version:"1.4.0.0", transactions:{ "aaa...bbb": {...}} },
+  ]
+  errors: []
+}
+```
+
+See [GetRawMempoolVerboseResult](https://godoc.org/github.com/gcash/bchd/btcjson#GetRawMempoolVerboseResult) for ```transactions``` element specs.
+
+
+### Retrieve Mining Info
+
+#### Request
+
+```
+GET /api/blockchains/miningInfo
+```
+
+#### Response
+
+The API will send you the mining info retrieved from each node within [model/MiningInfosResponse](https://github.com/eminently/chopsticks/blob/master/model/Blockchain.go) json object:
+
+```json
+{
+  miningInfos: [
+    { blockchain_type:"XBC", blockchain_version:"0.18.2.0-unk", mining_info:{ "aaa...bbb": {...}} },
+    { blockchain_type:"XBS", blockchain_version:"0.1.0.0-beta-200015661", mining_info:{ "aaa...bbb": {...}} },
+    { blockchain_type:"XBN", blockchain_version:"0.17.2.0-5210f8f46", mining_info:{ "aaa...bbb": {...}} },
+    { blockchain_type:"XBU", blockchain_version:"1.4.0.0", mining_info:{ "aaa...bbb": {...}} },
+  ]
+  errors: []
+}
+```
+
+See [GetMiningInfoResult](https://godoc.org/github.com/gcash/bchd/btcjson#GetMiningInfoResult) for ```mining_info``` specs.
 
 ## Chopsticks Cloud Infrastructure
 
