@@ -191,10 +191,10 @@ The API will send you the raw mempool retrieved from each node within [model/Mem
 ```json
 {
   mempools: [
-    { blockchain_type:"XBC", blockchain_version:"0.18.2.0-unk", transactions:{ "aaa...bbb": {...}} },
-    { blockchain_type:"XBS", blockchain_version:"0.1.0.0-beta-200015661", transactions:{ "aaa...bbb": {...}} },
-    { blockchain_type:"XBN", blockchain_version:"0.17.2.0-5210f8f46", transactions:{ "aaa...bbb": {...}} },
-    { blockchain_type:"XBU", blockchain_version:"1.4.0.0", transactions:{ "aaa...bbb": {...}} },
+    { blockchain_type:"XBC", blockchain_version:"0.18.2.0-unk", transactions:{ "aaa...bbb": {"size":255, ...}} },
+    { blockchain_type:"XBS", blockchain_version:"0.1.0.0-beta-200015661", transactions:{ "aaa...bbb": {"size":255, ...}} },
+    { blockchain_type:"XBN", blockchain_version:"0.17.2.0-5210f8f46", transactions:{ "aaa...bbb": {"size":255, ...}} },
+    { blockchain_type:"XBU", blockchain_version:"1.4.0.0", transactions:{ "aaa...bbb": {"size":255, ...}} },
   ]
   errors: []
 }
@@ -218,10 +218,10 @@ The API will send you the mining info retrieved from each node within [model/Min
 ```json
 {
   miningInfos: [
-    { blockchain_type:"XBC", blockchain_version:"0.18.2.0-unk", mining_info:{ "aaa...bbb": {...}} },
-    { blockchain_type:"XBS", blockchain_version:"0.1.0.0-beta-200015661", mining_info:{ "aaa...bbb": {...}} },
-    { blockchain_type:"XBN", blockchain_version:"0.17.2.0-5210f8f46", mining_info:{ "aaa...bbb": {...}} },
-    { blockchain_type:"XBU", blockchain_version:"1.4.0.0", mining_info:{ "aaa...bbb": {...}} },
+    { blockchain_type:"XBC", blockchain_version:"0.18.2.0-unk", mining_info:{"blocks":551183,"currentblocksize":0, ...}},
+    { blockchain_type:"XBS", blockchain_version:"0.1.0.0-beta-200015661", mining_info:{"blocks":551183,"currentblocksize":0, ...}},
+    { blockchain_type:"XBN", blockchain_version:"0.17.2.0-5210f8f46", mining_info:{"blocks":551183,"currentblocksize":0, ...}},
+    { blockchain_type:"XBU", blockchain_version:"1.4.0.0", mining_info:{"blocks":551183,"currentblocksize":0, ...}},
   ]
   errors: []
 }
