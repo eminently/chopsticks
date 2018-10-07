@@ -2,7 +2,7 @@
 
 If you are afraid of Bitcoin Cash [forks](https://en.wikipedia.org/wiki/List_of_bitcoin_forks), use [chopsticks](https://api.chopsticks.cash) !
 
-
+---
 ## Context
 
 Sadly, the probability that the BitcoinCash (BCH/XBC) community will have to deal with a contentious fork on November 15th, 2018 is pretty high at this point.
@@ -22,7 +22,7 @@ Final note:
 This list may evolve and will be updated if any new announcement is made by the community.
 The owners of each implementations can process to a pull-request on chopsticks Github, if they want to improve the above definition.
 
-
+---
 ## Project Goals
 
 No one knows how things will go during this contentious forking period, and which Bitcoin Cash forks are going to survive and to be supported by the community.
@@ -39,7 +39,7 @@ Bitcoin Cash application developers will be able to operate their business norma
 
 And finally, we will see how things will go and which chain(s) the market will decide to support, and which one to continue operating on.
 
-
+---
 ## Chopsticks API
 
 Here are the main features of [chopsticks.cash](https://api.chopsticks.cash) API:
@@ -229,6 +229,7 @@ The API will send you the mining info retrieved from each node within [model/Min
 
 See [GetMiningInfoResult](https://godoc.org/github.com/gcash/bchd/btcjson#GetMiningInfoResult) for ```mining_info``` specs.
 
+---
 ## Chopsticks Cloud Infrastructure
 
 We are running the different nodes and chopsticks API on AWS.
