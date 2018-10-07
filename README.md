@@ -46,14 +46,14 @@ Here are the main features of [chopsticks.cash](https://api.chopsticks.cash) API
 - take your pre-signed transaction (POST request) and execute your transaction on the 6+ chains;
 - cast your vote about your chain preference for example (XBC, XBN, XBS) by descending order of preference;
 - retrieve a transaction by hash from all the nodes;
-- give statistics to the community
+- retrieve statistics from the nodes
 
 API end-point:  [https://api.chopsticks.cash](https://api.chopsticks.cash)
 
 The API is live and you can start processing your transactions through it.
 
 
-### Get an API token
+### Prerequisite : Get an API token
 
 Go to [chopsticks.cash](https://chopsticks.cash) and click on "Get Your Token".
 You will have to create an account with one of your email.
@@ -73,7 +73,7 @@ Authorization: User xxx...yyy
 We are providing a Golang library to help you sign your transaction on the client-side. Contributions are welcome for other programming languages.
 
 
-### Send a raw transaction to all chains' nodes and cast a vote
+### 1. Send a raw transaction to all chains' nodes and cast a vote
 
 We provide only one way for you to send us your transaction: a raw signed transaction (see:
 ```createrawtransaction``` and ```signrawtransaction``` commands of [bitcoin-cli](https://en.bitcoin.it/wiki/Raw_Transactions#createrawtransaction_.5B.7B.22txid.22:txid.2C.22vout.22:n.7D.2C....5D_.7Baddress:amount.2C....7D)).
@@ -149,7 +149,7 @@ Note that block_height is the last block mined not the block that your transacti
 Note that pre-fork, your transaction will be sent the different nodes you selected. You don't have to worry double spend will not
 occur per Bitcoin protocol specification, it will just be repeated/relayed by all the nodes.
 
-### Retrieve a transaction by hash
+### 2. Retrieve a transaction by hash
 
 #### Request
 Simply pass the hash within the URL.
@@ -176,7 +176,7 @@ The API will send you the transaction retrieved from each node like:
 }
 ```
 
-### Retrieve Mempool Stats
+### 3. Retrieve Mempool Stats
 
 #### Request
 
@@ -203,7 +203,7 @@ The API will send you the raw mempool retrieved from each node within [model/Mem
 See [GetRawMempoolVerboseResult](https://godoc.org/github.com/gcash/bchd/btcjson#GetRawMempoolVerboseResult) for ```transactions``` element specs.
 
 
-### Retrieve Mining Info
+### 4. Retrieve Mining Info
 
 #### Request
 
@@ -243,6 +243,7 @@ Don't hesitate to ask us to integrate others.
 [chopsticks.cash](https://api.chopsticks.cash) API connects exclusively to these 6+ nodes that we maintain.
 
 
+---
 ## Contribute To And Support The Project
 
 Join chopsticks.cash [Telegram group](https://t.me/joinchat/FmkGFhJBwEvLb00XQ1ztIA) and share your feedback and ideas with the team! 
@@ -250,7 +251,7 @@ Join chopsticks.cash [Telegram group](https://t.me/joinchat/FmkGFhJBwEvLb00XQ1zt
 In order to help us develop the API and run the AWS nodes, you can donate some [$BCH](https://coinmarketcap.com/currencies/bitcoin-cash/), please send it to our wallet address: [bitcoincash:qzuw0upmzk83lupq86lc6l62znpqs3k6svtf292dql](https://www.blocktrail.com/BCC/address/1HrhBfFRFovHv8EMxsuB9EcZgamtuH3fMc). You will be part of the journey, a founding member!
 
 
-
+---
 ## License
 
 The MIT License
