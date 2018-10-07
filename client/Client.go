@@ -265,3 +265,22 @@ func GetMiningInfos(apiToken string) (*model.MiningInfosResponse, *errors.AppErr
 
 	return &response, nil
 }
+
+func GetInfos(apiToken string) (*model.InfosResponse, *errors.AppError){
+	data, appErr := network.Get(CHOPSTICKS_API_URL+"/blockchains/info", nil, apiToken )
+
+	if appErr != nil {
+		return nil, appErr
+	}
+
+	response := model.InfosResponse{}
+
+	dec := json.NewDecoder(strings.NewReader(string(data)))
+	errD := dec.Decode(&response)
+
+	if errD != nil {
+		return nil, errors.NewAppError(nil, "cannot parse mining info response: "+string(data), -1, nil)
+	}
+
+	return &response, nil
+}

@@ -180,6 +180,8 @@ The API will send you the transaction retrieved from each node like:
 
 #### Request
 
+This is a wrapper of ```getrawmempool``` Bitcoin command:
+
 ```
 GET /api/blockchains/mempool
 ```
@@ -207,6 +209,8 @@ See [GetRawMempoolVerboseResult](https://godoc.org/github.com/gcash/bchd/btcjson
 
 #### Request
 
+This is a wrapper of ```getmininginfo``` Bitcoin command:
+
 ```
 GET /api/blockchains/miningInfo
 ```
@@ -227,7 +231,33 @@ The API will send you the mining info retrieved from each node within [model/Min
 }
 ```
 
-See [GetMiningInfoResult](https://godoc.org/github.com/gcash/bchd/btcjson#GetMiningInfoResult) for ```mining_info``` specs.
+### 5. Retrieve Blockchain Info
+
+#### Request
+
+This is a wrapper of ```getblockchaininfo``` Bitcoin command:
+
+```
+GET /api/blockchains/info
+```
+
+#### Response
+
+The API will send you the general blockchain info retrieved from each node within [model/InfosResponse](https://github.com/eminently/chopsticks/blob/master/model/Blockchain.go) json object:
+
+```json
+{
+  infos: [
+    { blockchain_type:"XBC", blockchain_version:"0.18.2.0-unk", {"info":{"chain":"main","blocks":551209,"headers":551209,...}},
+    { blockchain_type:"XBS", blockchain_version:"0.1.0.0-beta-200015661", {"info":{"chain":"main","blocks":551209,"headers":551209,...}},
+    { blockchain_type:"XBN", blockchain_version:"0.17.2.0-5210f8f46", {"info":{"chain":"main","blocks":551209,"headers":551209,...}},
+    { blockchain_type:"XBU", blockchain_version:"1.4.0.0", {"info":{"chain":"main","blocks":551209,"headers":551209,...}},
+  ]
+  errors: []
+}
+```
+
+See [GetBlockchainInfoResult](https://godoc.org/github.com/gcash/bchd/btcjson#GetBlockchainInfoResult) for ```mining_info``` specs.
 
 ---
 ## Chopsticks Cloud Infrastructure

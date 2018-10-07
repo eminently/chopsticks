@@ -45,3 +45,14 @@ type MiningInfosResponse struct {
 	MiningInfos	[]MiningInfo		`json:"mining_infos,omitempty"`
 	Errors  	[]errors.AppError	`json:"errors,omitempty"`
 }
+
+type Info struct {
+	Info			btcjson.GetBlockChainInfoResult	`json:"info,omitempty"`
+	ChainType   	string           				`json:"blockchain_type,omitempty"`
+	ChainVersion 	string           				`json:"blockchain_version,omitempty"`
+}
+
+type InfosResponse struct {
+	Infos	[]Info				`json:"infos,omitempty"`
+	Errors  []errors.AppError	`json:"errors,omitempty"`
+}
