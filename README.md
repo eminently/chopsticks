@@ -40,6 +40,14 @@ Bitcoin Cash application developers will be able to operate their business norma
 And finally, we will see how things will go and which chain(s) the market will decide to support, and which one to continue operating on.
 
 ---
+## Forks outcome
+
+
+If you want to read more about the outcome of these forks, we wrote this detailed analysis:
+[Bitcoin Cash Forks Outcome: Deficient User Experience and Double-Spend Attempts](https://www.yours.org/content/bitcoin-cash-contentious-forks-outcome--deficient-user-experience-and-b458c3aa609f)
+
+
+---
 ## Chopsticks API
 
 Here are the main features of [chopsticks.cash](https://api.chopsticks.cash) API:
