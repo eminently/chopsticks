@@ -23,6 +23,7 @@ type Transaction struct {
 	ChainType    string           `json:"blockchain_type,omitempty"`
 	ChainVersion string           `json:"blockchain_version,omitempty"`
 	BlockHeight  int              `json:"block_height,omitempty"`
+	BlockEcmh	 string			  `json:"block_ecmh,omitempty"`
 	Status       int              `json:"status,omitempty"`
 }
 
