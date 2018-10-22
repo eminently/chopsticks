@@ -35,6 +35,10 @@
 
         <footer>
 
+            {% if site.github.is_project_page %}
+            <p>Crafted and maintained with ❤️ by <a target="_blank" href="https://eminent.ly">eminent.ly</a> 👌</p>
+            {% endif %}
+
             <p><strong>Active nodes</strong>
                 <ul>
                     <li><a target="_blank" href="https://www.bitcoinabc.org">XBC (ABC)</a></li>
@@ -43,10 +47,6 @@
                     <li><a target="_blank" href="https://github.com/dgenr8/bitcoin-abc/commits/NayBC-0.17.2">XBN (NayBC)</a></li>
                 </ul>
             </p>
-            
-            {% if site.github.is_project_page %}
-             <p>Crafted and maintained with ❤️ by <a target="_blank" href="https://eminent.ly">eminent.ly</a> 👌</p>
-            {% endif %}
 
             <p><strong>Tools</strong>
             <ul>
