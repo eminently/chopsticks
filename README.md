@@ -129,6 +129,18 @@ Also post-fork, you will be able to only process your transaction to every chain
 - or future spendable output which does not use new opcodes that were not existing pre-fork and are not universally implemented post-fork. In this case, the API
 will only be able to push your transaction to some of the nodes.
 
+Finally, if you want to post a transaction to XBC testnet, you can do it passing this configuration:
+
+```json
+{
+  ...
+  blockchains: ["TXBC"],
+  ...
+}
+``
+
+In that case, mainnets are ignored and voting is not supported.
+
 #### Response
 
 The API sends you a response containing your original hexadecimal representation of the signed transaction, the hash of your transaction as well as some info related to the chain it was excecuted on, the casted vote data and its signature.

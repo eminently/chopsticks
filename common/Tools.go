@@ -31,3 +31,10 @@ func PrivKeyFromBytes(curve elliptic.Curve, pk []byte) (*btcec.PrivateKey, *btce
 
 	return (*btcec.PrivateKey)(priv), (*btcec.PublicKey)(&priv.PublicKey)
 }
+
+type RGBT struct {
+	Red 	     int
+	Blue 		 int
+	Green		 int
+	Transparency int
+}
