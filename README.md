@@ -137,7 +137,7 @@ Finally, if you want to post a transaction to XBC testnet, you can do it passing
   blockchains: ["TXBC"],
   ...
 }
-``
+```
 
 In that case, mainnets are ignored and voting is not supported.
 
