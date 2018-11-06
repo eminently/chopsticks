@@ -175,10 +175,10 @@ occur per Bitcoin protocol specification, it will just be repeated/relayed by al
 Simply pass the hash within the URL.
 
 ```
-GET /api/transactions/{hash}
+GET /transactions/{hash}
 ```
 
-For example: /api/transactions/aaaa...bbb
+For example: /transactions/aaaa...bbb
 
 #### Response
 
@@ -203,7 +203,7 @@ The API will send you the transaction retrieved from each node like:
 This is a wrapper of ```getrawmempool``` Bitcoin command:
 
 ```
-GET /api/blockchains/mempool
+GET /blockchains/mempool
 ```
 
 #### Response
@@ -232,7 +232,7 @@ See [GetRawMempoolVerboseResult](https://godoc.org/github.com/gcash/bchd/btcjson
 This is a wrapper of ```getmininginfo``` Bitcoin command:
 
 ```
-GET /api/blockchains/miningInfo
+GET /blockchains/miningInfo
 ```
 
 #### Response
@@ -258,7 +258,7 @@ The API will send you the mining info retrieved from each node within [model/Min
 This is a wrapper of ```getblockchaininfo``` Bitcoin command:
 
 ```
-GET /api/blockchains/info
+GET /blockchains/info
 ```
 
 #### Response
