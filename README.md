@@ -98,7 +98,7 @@ Optionally, you can cast a vote for your most preferred forks.
 #### Request
  
 ```
-POST /api/transactions
+POST /transactions
 ```
 
 ```json
