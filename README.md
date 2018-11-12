@@ -104,7 +104,7 @@ POST /transactions
 ```json
 { 
   tx_hex: "aaaa...bbb", 
-  blockchains: ["XBC", "XBS", "XBN", "XBU"],
+  blockchains: ["XBC", "XBS", "XBN", "XBU", "XBD"],
   voting: false
 }
 ```
@@ -116,7 +116,7 @@ So if you want to rank XBC 1st, XBN 2nd, XBS 3rd, you will need to write:
 ```json
 { 
   ...
-  blockchains: ["XBC", "XBN", "XBS", "XBU"],
+  blockchains: ["XBC", "XBN", "XBS", "XBU", "XBD"],
   voting: true
   ...
 }
@@ -158,7 +158,7 @@ Note that block_height is the last block mined not the block that your transacti
   ],
   vote: {
     uuid: "1234-...-accd",
-    preferredChains: ["XBC", "XBN", "XBS", "XBU"],
+    preferredChains: ["XBC", "XBN", "XBS", "XBU", "XBD"],
     created: 123456789,
     ...
   },
@@ -290,9 +290,9 @@ See [GetBlockchainInfoResult](https://godoc.org/github.com/gcash/bchd/btcjson#Ge
 
 We are running the different nodes and chopsticks API on AWS.
 
-Currently XBC, XBN, XBS, XBU are operational.
+Currently XBC, XBN, XBS, XBU and XBD nodes are operational.
 
-The other nodes XBD, XBT, XBB will be released soon, we will update this documentation as soon as there will be available.
+The other nodes XBT and XBB will be released soon, we will update this documentation as soon as there will be available.
 
 Don't hesitate to ask us to integrate others.
 
