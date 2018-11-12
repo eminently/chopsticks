@@ -150,10 +150,11 @@ Note that block_height is the last block mined not the block that your transacti
 { 
   tx_hex: "aaaa...bbb", 
   transactions: [
-    { blockchain_type:"XBC", hash: "aaa...bbb", blockchain_version:"0.18.2.0-unk", block_height:555555, ... },
-    { blockchain_type:"XBS", hash: "aaa...bbb", blockchain_version:"0.1.0.0-beta-200015661", block_height:555555, ... },
+    { blockchain_type:"XBC", hash: "aaa...bbb", blockchain_version:"0.18.3.0-unk", block_height:555555, ... },
+    { blockchain_type:"XBS", hash: "aaa...bbb", blockchain_version:"0.1.0.0-d9b12a23d", block_height:555555, ... },
     { blockchain_type:"XBN", hash: "aaa...bbb", blockchain_version:"0.17.2.0-5210f8f46", block_height:555555, ... },
-    { blockchain_type:"XBU", hash: "aaa...bbb", blockchain_version:"1.4.0.0", block_height:555555, ... },
+    { blockchain_type:"XBU", hash: "aaa...bbb", blockchain_version:"1.5.0.1-unk", block_height:555555, ... },
+    { blockchain_type:"XBD", hash: "aaa...bbb", blockchain_version:"0.12.0-beta2", block_height:555555, ... },
   ],
   vote: {
     uuid: "1234-...-accd",
@@ -187,10 +188,11 @@ The API will send you the transaction retrieved from each node like:
 ```json
 {
   transactions: [
-    { blockchain_type:"XBC", hash: "aaa...bbb", blockchain_version:"0.18.2.0-unk", block_height:555555, ... },
-    { blockchain_type:"XBS", hash: "aaa...bbb", blockchain_version:"0.1.0.0-beta-200015661", block_height:555555, ... },
+    { blockchain_type:"XBC", hash: "aaa...bbb", blockchain_version:"0.18.3.0-unk", block_height:555555, ... },
+    { blockchain_type:"XBS", hash: "aaa...bbb", blockchain_version:"0.1.0.0-d9b12a23d", block_height:555555, ... },
     { blockchain_type:"XBN", hash: "aaa...bbb", blockchain_version:"0.17.2.0-5210f8f46", block_height:555555, ... },
-    { blockchain_type:"XBU", hash: "aaa...bbb", blockchain_version:"1.4.0.0", block_height:555555, ... },
+    { blockchain_type:"XBU", hash: "aaa...bbb", blockchain_version:"1.5.0.1-unk", block_height:555555, ... },
+    { blockchain_type:"XBD", hash: "aaa...bbb", blockchain_version:"0.12.0-beta2", block_height:555555, ... },
   ]
   errors: []
 }
@@ -213,10 +215,12 @@ The API will send you the raw mempool retrieved from each node within [model/Mem
 ```json
 {
   mempools: [
-    { blockchain_type:"XBC", blockchain_version:"0.18.2.0-unk", transactions:{ "aaa...bbb": {"size":255, ...}} },
-    { blockchain_type:"XBS", blockchain_version:"0.1.0.0-beta-200015661", transactions:{ "aaa...bbb": {"size":255, ...}} },
+    { blockchain_type:"XBC", blockchain_version:"0.18.3.0-unk", transactions:{ "aaa...bbb": {"size":255, ...}} },
+    { blockchain_type:"XBS", blockchain_version:"0.1.0.0-d9b12a23d", transactions:{ "aaa...bbb": {"size":255, ...}} },
     { blockchain_type:"XBN", blockchain_version:"0.17.2.0-5210f8f46", transactions:{ "aaa...bbb": {"size":255, ...}} },
-    { blockchain_type:"XBU", blockchain_version:"1.4.0.0", transactions:{ "aaa...bbb": {"size":255, ...}} },
+    { blockchain_type:"XBU", blockchain_version:"1.5.0.1-unk", transactions:{ "aaa...bbb": {"size":255, ...}} },
+    { blockchain_type:"XBD", blockchain_version:"0.12.0-beta2", transactions:{ "aaa...bbb": {"size":255, ...}} },
+
   ]
   errors: []
 }
@@ -242,10 +246,11 @@ The API will send you the mining info retrieved from each node within [model/Min
 ```json
 {
   miningInfos: [
-    { blockchain_type:"XBC", blockchain_version:"0.18.2.0-unk", mining_info:{"blocks":551183,"currentblocksize":0, ...}},
-    { blockchain_type:"XBS", blockchain_version:"0.1.0.0-beta-200015661", mining_info:{"blocks":551183,"currentblocksize":0, ...}},
+    { blockchain_type:"XBC", blockchain_version:"0.18.3.0-unk", mining_info:{"blocks":551183,"currentblocksize":0, ...}},
+    { blockchain_type:"XBS", blockchain_version:"0.1.0.0-d9b12a23d", mining_info:{"blocks":551183,"currentblocksize":0, ...}},
     { blockchain_type:"XBN", blockchain_version:"0.17.2.0-5210f8f46", mining_info:{"blocks":551183,"currentblocksize":0, ...}},
-    { blockchain_type:"XBU", blockchain_version:"1.4.0.0", mining_info:{"blocks":551183,"currentblocksize":0, ...}},
+    { blockchain_type:"XBU", blockchain_version:"1.5.0.1-unk", mining_info:{"blocks":551183,"currentblocksize":0, ...}},
+    { blockchain_type:"XBD", blockchain_version:"0.12.0-beta2", mining_info:{"blocks":551183,"currentblocksize":0, ...}},
   ]
   errors: []
 }
@@ -268,11 +273,12 @@ The API will send you the general blockchain info retrieved from each node withi
 ```json
 {
   infos: [
-    { blockchain_type:"XBC", blockchain_version:"0.18.2.0-unk", {"info":{"chain":"main","blocks":551209,"headers":551209,...}},
-    { blockchain_type:"XBS", blockchain_version:"0.1.0.0-beta-200015661", {"info":{"chain":"main","blocks":551209,"headers":551209,...}},
+    { blockchain_type:"XBC", blockchain_version:"0.18.3.0-unk", {"info":{"chain":"main","blocks":551209,"headers":551209,...}},
+    { blockchain_type:"XBS", blockchain_version:"0.1.0.0-d9b12a23d", {"info":{"chain":"main","blocks":551209,"headers":551209,...}},
     { blockchain_type:"XBN", blockchain_version:"0.17.2.0-5210f8f46", {"info":{"chain":"main","blocks":551209,"headers":551209,...}},
-    { blockchain_type:"XBU", blockchain_version:"1.4.0.0", {"info":{"chain":"main","blocks":551209,"headers":551209,...}},
-  ]
+    { blockchain_type:"XBU", blockchain_version:"1.5.0.1-unk", {"info":{"chain":"main","blocks":551209,"headers":551209,...}},
+    { blockchain_type:"XBD", blockchain_version:"0.12.0-beta2", {"info":{"chain":"main","blocks":551209,"headers":551209,...}},
+ ]
   errors: []
 }
 ```
