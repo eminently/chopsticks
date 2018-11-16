@@ -104,19 +104,19 @@ POST /transactions
 ```json
 { 
   tx_hex: "aaaa...bbb", 
-  blockchains: ["XBC", "XBS", "XBN", "XBU", "XBD"],
+  blockchains: ["XBC", "XBS", "XBU", "XBD"],
   voting: false
 }
 ```
 
 Note that the order of the blockchains array will count as vote if you pass ```voting:true``` within your JSON request.
 
-So if you want to rank XBC 1st, XBN 2nd, XBS 3rd, you will need to write:
+So if you want to rank XBC 1st, XBS 2nd you will need to write:
 
 ```json
 { 
   ...
-  blockchains: ["XBC", "XBN", "XBS", "XBU", "XBD"],
+  blockchains: ["XBC", "XBS", "XBU", "XBD"],
   voting: true
   ...
 }
@@ -152,13 +152,12 @@ Note that block_height is the last block mined not the block that your transacti
   transactions: [
     { blockchain_type:"XBC", hash: "aaa...bbb", blockchain_version:"0.18.3.0-unk", block_height:555555, ... },
     { blockchain_type:"XBS", hash: "aaa...bbb", blockchain_version:"0.1.0.0-d9b12a23d", block_height:555555, ... },
-    { blockchain_type:"XBN", hash: "aaa...bbb", blockchain_version:"0.17.2.0-5210f8f46", block_height:555555, ... },
     { blockchain_type:"XBU", hash: "aaa...bbb", blockchain_version:"1.5.0.1-unk", block_height:555555, ... },
     { blockchain_type:"XBD", hash: "aaa...bbb", blockchain_version:"0.12.0-beta2", block_height:555555, ... },
   ],
   vote: {
     uuid: "1234-...-accd",
-    preferredChains: ["XBC", "XBN", "XBS", "XBU", "XBD"],
+    preferredChains: ["XBC", "XBS", "XBU", "XBD"],
     created: 123456789,
     ...
   },
@@ -190,7 +189,6 @@ The API will send you the transaction retrieved from each node like:
   transactions: [
     { blockchain_type:"XBC", hash: "aaa...bbb", blockchain_version:"0.18.3.0-unk", block_height:555555, ... },
     { blockchain_type:"XBS", hash: "aaa...bbb", blockchain_version:"0.1.0.0-d9b12a23d", block_height:555555, ... },
-    { blockchain_type:"XBN", hash: "aaa...bbb", blockchain_version:"0.17.2.0-5210f8f46", block_height:555555, ... },
     { blockchain_type:"XBU", hash: "aaa...bbb", blockchain_version:"1.5.0.1-unk", block_height:555555, ... },
     { blockchain_type:"XBD", hash: "aaa...bbb", blockchain_version:"0.12.0-beta2", block_height:555555, ... },
   ]
@@ -217,7 +215,6 @@ The API will send you the raw mempool retrieved from each node within [model/Mem
   mempools: [
     { blockchain_type:"XBC", blockchain_version:"0.18.3.0-unk", transactions:{ "aaa...bbb": {"size":255, ...}} },
     { blockchain_type:"XBS", blockchain_version:"0.1.0.0-d9b12a23d", transactions:{ "aaa...bbb": {"size":255, ...}} },
-    { blockchain_type:"XBN", blockchain_version:"0.17.2.0-5210f8f46", transactions:{ "aaa...bbb": {"size":255, ...}} },
     { blockchain_type:"XBU", blockchain_version:"1.5.0.1-unk", transactions:{ "aaa...bbb": {"size":255, ...}} },
     { blockchain_type:"XBD", blockchain_version:"0.12.0-beta2", transactions:{ "aaa...bbb": {"size":255, ...}} },
 
@@ -248,7 +245,6 @@ The API will send you the mining info retrieved from each node within [model/Min
   miningInfos: [
     { blockchain_type:"XBC", blockchain_version:"0.18.3.0-unk", mining_info:{"blocks":551183,"currentblocksize":0, ...}},
     { blockchain_type:"XBS", blockchain_version:"0.1.0.0-d9b12a23d", mining_info:{"blocks":551183,"currentblocksize":0, ...}},
-    { blockchain_type:"XBN", blockchain_version:"0.17.2.0-5210f8f46", mining_info:{"blocks":551183,"currentblocksize":0, ...}},
     { blockchain_type:"XBU", blockchain_version:"1.5.0.1-unk", mining_info:{"blocks":551183,"currentblocksize":0, ...}},
     { blockchain_type:"XBD", blockchain_version:"0.12.0-beta2", mining_info:{"blocks":551183,"currentblocksize":0, ...}},
   ]
@@ -275,7 +271,6 @@ The API will send you the general blockchain info retrieved from each node withi
   infos: [
     { blockchain_type:"XBC", blockchain_version:"0.18.3.0-unk", {"info":{"chain":"main","blocks":551209,"headers":551209,...}},
     { blockchain_type:"XBS", blockchain_version:"0.1.0.0-d9b12a23d", {"info":{"chain":"main","blocks":551209,"headers":551209,...}},
-    { blockchain_type:"XBN", blockchain_version:"0.17.2.0-5210f8f46", {"info":{"chain":"main","blocks":551209,"headers":551209,...}},
     { blockchain_type:"XBU", blockchain_version:"1.5.0.1-unk", {"info":{"chain":"main","blocks":551209,"headers":551209,...}},
     { blockchain_type:"XBD", blockchain_version:"0.12.0-beta2", {"info":{"chain":"main","blocks":551209,"headers":551209,...}},
  ]
@@ -290,7 +285,7 @@ See [GetBlockchainInfoResult](https://godoc.org/github.com/gcash/bchd/btcjson#Ge
 
 We are running the different nodes and chopsticks API on AWS.
 
-Currently XBC, XBN, XBS, XBU and XBD nodes are operational.
+Currently XBC, XBS, XBU and XBD nodes are operational. As for 11/16, we deactivated XBN because no miners are mining it anymore.
 
 The other nodes XBT and XBB will be released soon, we will update this documentation as soon as there will be available.
 
