@@ -24,6 +24,7 @@ import (
 	"github.com/chopsticks/model"
 	"github.com/chopsticks/network"
 	"github.com/cpacia/bchutil"
+	"strconv"
 	"strings"
 )
 
@@ -210,6 +211,25 @@ func SendRawTransactionToChopsticks(signedTxHex string, chains []string, voting 
 
 func GetTransaction(hash string, apiToken string) (*model.TransactionResponse, *errors.AppError) {
 	trxData, appErr := network.Get(CHOPSTICKS_API_URL+"/transactions/"+hash, nil, apiToken )
+
+	if appErr != nil {
+		return nil, appErr
+	}
+
+	response := model.TransactionResponse{}
+
+	dec := json.NewDecoder(strings.NewReader(string(trxData)))
+	errD := dec.Decode(&response)
+
+	if errD != nil {
+		return nil, errors.NewAppError(nil, "cannot parse transaction response: "+string(trxData), -1, nil)
+	}
+
+	return &response, nil
+}
+
+func GetTransactionByAddress(address string, apiToken string) (*model.TransactionResponse, *errors.AppError) {
+	trxData, appErr := network.Get(CHOPSTICKS_API_URL+"/transactions/address/"+address, nil, apiToken )
 
 	if appErr != nil {
 		return nil, appErr

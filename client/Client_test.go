@@ -29,7 +29,9 @@ var (
 
 	utxoSource        = "d9f01d93b215ac701c7f9a56c8d5d1bdf2e0498047da81d3bf6fc23a2ee3bbb5" // CHANGE IT !! this is an example of source UTXO
 	utxoIndex  uint32 = 1                                                                 // CHANGE IT !!  this is an example of source UTXO
-	utxoValue  int64  = 32114                                                              // CHANGE IT !!  this is an example of source UTXO
+	utxoValue  int64  = 32114
+
+	addressSource = "1E7nGNVkhCfHjWaPS2Q9YPppsPDifqXr2d" // CHANGE IT !!  this is an example of wallet address
 
 	signedHex = "" // CHANGE IT !!  if you want to run TestBchSendRawTransaction without TestClientCreateBitcoinCashTransaction
 
@@ -40,9 +42,21 @@ var (
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-func TestGetBitcoinCashTransaction(t *testing.T) {
+func TestGetTransaction(t *testing.T) {
 
 	response, err := GetTransaction(utxoSource, apiToken)
+
+	assert.Nil(t, err, "shoult not report any")
+
+	data, _ := json.Marshal(response)
+
+	fmt.Println("transactions retrieved: ", string(data))
+
+}
+
+func TestGetTransactionsByAddress(t *testing.T) {
+
+	response, err := GetTransactionByAddress(addressSource, apiToken)
 
 	assert.Nil(t, err, "shoult not report any")
 
