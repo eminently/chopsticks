@@ -9,6 +9,6 @@ printf "running chopsticks-get-tx-byhash script...\n"
 printf "querying chopsticks API : https://api.chopsticks.cash/transactions/address/${address} ...\n"
 
 ## call API
-curl -v -H "Authorization: User ${token}" -H "Content-Type: application/json" -X GET http://api.chopsticks.cash/transactions/address/${address}
+curl -v -H "Authorization: User ${token}" -H "Content-Type: application/json" -X GET https://api.chopsticks.cash/transactions/address/${address}
 
 printf "\n ...finished!\n"
