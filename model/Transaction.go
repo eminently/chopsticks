@@ -11,22 +11,24 @@ package model
 import "github.com/chopsticks/errors"
 
 type Transaction struct {
-	DataVersion  int              `json:"data_version"`
-	Uid          string           `json:"uid"`
-	Created      int64            `json:"created"`
-	UserId       string           `json:"user_id"`
-	Inputs       map[string]int64 `json:"inputs,omitempty"`
-	Outputs      map[string]int64 `json:"outputs,omitempty"`
-	Amount       int64            `json:"amount,omitempty"`
-	SignedTx     string           `json:"tx_signed,omitempty"`
-	Hash         string           `json:"tx_hash,omitempty"`
-	ChainType    string           `json:"blockchain_type,omitempty"`
-	ChainVersion string           `json:"blockchain_version,omitempty"`
-	BlockHeight  int              `json:"block_height,omitempty"`
-	BlockEcmh	 string			  `json:"block_ecmh,omitempty"`
-	Status       int              `json:"status,omitempty"`
+	DataVersion  int              	`json:"data_version"`
+	Uid          string           	`json:"uid"`
+	Created      int64            	`json:"created"`
+	UserId       string           	`json:"user_id"`
+	ApiToken	 string				`json:"-"`
+	Inputs       map[string]int64 	`json:"inputs,omitempty"`
+	Outputs      map[string]int64 	`json:"outputs,omitempty"`
+	Amount       int64            	`json:"amount,omitempty"`
+	SignedTx     string           	`json:"tx_signed,omitempty"`
+	Hash         string           	`json:"tx_hash,omitempty"`
+	ChainType    string           	`json:"blockchain_type,omitempty"`
+	ChainVersion string           	`json:"blockchain_version,omitempty"`
+	BlockHeight  int              	`json:"block_height,omitempty"`
+	BlockEcmh	 string				`json:"block_ecmh,omitempty"`
+	Time		 int64              `json:"time,omitempty"`
+	BlockTime	 int64              `json:"block_time,omitempty"`
+	Status       int              	`json:"status,omitempty"`
 }
-
 type TransactionRequest struct {
 	TxHex       string   `json:"tx_hex,omitempty"`
 	Blockchains []string `json:"blockchains,omitempty"`
