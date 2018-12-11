@@ -8,14 +8,13 @@
  */
 package model
 
-import "github.com/chopsticks/errors"
+import "github.com/eminently/chopsticks/errors"
 
 type Transaction struct {
 	DataVersion  int              	`json:"data_version"`
 	Uid          string           	`json:"uid"`
 	Created      int64            	`json:"created"`
 	UserId       string           	`json:"user_id"`
-	ApiToken	 string				`json:"-"`
 	Inputs       map[string]int64 	`json:"inputs,omitempty"`
 	Outputs      map[string]int64 	`json:"outputs,omitempty"`
 	Amount       int64            	`json:"amount,omitempty"`
@@ -28,21 +27,25 @@ type Transaction struct {
 	Time		 int64              `json:"time,omitempty"`
 	BlockTime	 int64              `json:"block_time,omitempty"`
 	Status       int              	`json:"status,omitempty"`
+	UnsignedTx   string           	`json:"unsignedtx,omitempty"`
+	IsLegacy     int				`json:"is_legacy,omitempty"`
 }
+
 type TransactionRequest struct {
-	TxHex       string   `json:"tx_hex,omitempty"`
-	Blockchains []string `json:"blockchains,omitempty"`
-	Voting      bool     `json:"voting,omitempty"`
+	TxHex 			string			`json:"tx_hex,omitempty"`
+	Blockchains 	[]string	 	`json:"blockchains,omitempty"`
+	Voting			bool			`json:"voting,omitempty"`
 }
 
 type TransactionResponse struct {
-	TxHex         string            `json:"tx_hex,omitempty""`
-	Transactions  []Transaction     `json:"transactions,omitempty"`
-	Vote          Vote              `json:"vote,omitempty"`
-	VoteSignature string            `json:"vote_signature,omitempty"`
-	Errors        []errors.AppError `json:"errors,omitempty"`
+	TxHex 			string				`json:"tx_hex,omitempty"`
+	Transactions	[]Transaction		`json:"transactions,omitempty"`
+	Vote			Vote				`json:"vote,omitempty"`
+	VoteSignature	string				`json:"vote_signature,omitempty"`
+	Errors			[]errors.AppError	`json:"errors,omitempty"`
 }
 
+
 type Transactions struct {
-	Transactions []Transaction
+	Transactions 	[]Transaction 	`json:"transactions,omitempty"`
 }

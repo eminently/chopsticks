@@ -11,8 +11,8 @@ package model
 import (
 	"context"
 	"encoding/json"
-	"github.com/chopsticks/common"
-	. "github.com/chopsticks/errors"
+	"github.com/eminently/chopsticks/common"
+	. "github.com/eminently/chopsticks/errors"
 	"github.com/jinzhu/copier"
 	"github.com/rs/zerolog"
 )
@@ -25,13 +25,13 @@ const VOTE_DELETED = 4
 const VOTE_DATA_VERSION = 1
 
 type Vote struct {
-	DataVersion     int            `json:"dataVersion"`
-	Uid             string         `json:"uid"`
-	Created         int64          `json:"timestamp"`
-	UserId          string         `json:"userId"`
-	PreferredChains map[string]int `json:"preferredChains"`
-	Signature       string         `json:"signature"`
-	Status          int            `json:"status"`
+	DataVersion         int 			`json:"dataVersion,omitempty"`
+	Uid                 string 			`json:"uid,omitempty"`
+	Created			 	int64			`json:"timestamp,omitempty"`
+	UserId     			string			`json:"userId,omitempty"`
+	PreferredChains 	map[string]int	`json:"preferredChains,omitempty"`
+	Signature			string			`json:"signature,omitempty"`
+	Status				int				`json:"status,omitempty"`
 }
 
 var (

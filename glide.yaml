@@ -1,4 +1,4 @@
-package: github.com/chopsticks
+package: github.com/eminently/chopsticks
 import:
 - package: github.com/btcsuite/btcd
   subpackages:
@@ -9,12 +9,15 @@ import:
   - wire
 - package: github.com/btcsuite/btcutil
 - package: github.com/cpacia/bchutil
+- package: github.com/gcash/bchd
+  version: ^0.13.0-beta
+  subpackages:
+  - btcjson
 - package: github.com/jinzhu/copier
 - package: github.com/rs/zerolog
-  version: ^1.9.1
+  version: ^1.11.0
   subpackages:
   - log
-testImport:
 - package: github.com/stretchr/testify
   version: ^1.2.2
   subpackages:

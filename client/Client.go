@@ -19,10 +19,10 @@ import (
 	"github.com/btcsuite/btcd/txscript"
 	"github.com/btcsuite/btcd/wire"
 	"github.com/btcsuite/btcutil"
-	"github.com/chopsticks/common"
-	"github.com/chopsticks/errors"
-	"github.com/chopsticks/model"
-	"github.com/chopsticks/network"
+	"github.com/eminently/chopsticks/common"
+	"github.com/eminently/chopsticks/errors"
+	"github.com/eminently/chopsticks/model"
+	"github.com/eminently/chopsticks/network"
 	"github.com/cpacia/bchutil"
 	"strconv"
 	"strings"
@@ -228,6 +228,26 @@ func GetTransaction(hash string, apiToken string) (*model.TransactionResponse, *
 	return &response, nil
 }
 
+func GetTransactionFromChain(hash string, chainType string,  apiToken string) (*model.TransactionResponse, *errors.AppError) {
+	trxData, appErr := network.Get(CHOPSTICKS_API_URL+"/transactions/"+hash, map[string]string{"chainType":chainType}, apiToken )
+
+	if appErr != nil {
+		return nil, appErr
+	}
+
+	response := model.TransactionResponse{}
+
+	dec := json.NewDecoder(strings.NewReader(string(trxData)))
+	errD := dec.Decode(&response)
+
+	if errD != nil {
+		return nil, errors.NewAppError(nil, "cannot parse transaction response: "+string(trxData), -1, nil)
+	}
+
+	return &response, nil
+}
+
+
 func GetTransactionByAddress(address string, apiToken string) (*model.TransactionResponse, *errors.AppError) {
 	trxData, appErr := network.Get(CHOPSTICKS_API_URL+"/transactions/address/"+address, nil, apiToken )
 
@@ -300,6 +320,29 @@ func GetInfos(apiToken string) (*model.InfosResponse, *errors.AppError){
 
 	if errD != nil {
 		return nil, errors.NewAppError(nil, "cannot parse mining info response: "+string(data), -1, nil)
+	}
+
+	return &response, nil
+}
+
+func GetBlocks(apiToken string, since int64, to int64) (*model.BlocksResponse, *errors.AppError){
+	data, appErr := network.Get(CHOPSTICKS_API_URL+"/blocks",
+								map[string]string{
+									"since":strconv.Itoa(int(since)),
+									"to": strconv.Itoa(int(to)),},
+								apiToken )
+
+	if appErr != nil {
+		return nil, appErr
+	}
+
+	response := model.BlocksResponse{}
+
+	dec := json.NewDecoder(strings.NewReader(string(data)))
+	errD := dec.Decode(&response)
+
+	if errD != nil {
+		return nil, errors.NewAppError(nil, "cannot parse blocks response: "+string(data), -1, nil)
 	}
 
 	return &response, nil

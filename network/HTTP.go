@@ -14,7 +14,7 @@ import (
 	"strings"
 	"io/ioutil"
 	"net/url"
-	"github.com/chopsticks/errors"
+	"github.com/eminently/chopsticks/errors"
 )
 
 // simple HTTP GET request taking some URL params

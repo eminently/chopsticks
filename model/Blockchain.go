@@ -9,8 +9,8 @@
 package model
 
 import (
-	"github.com/chopsticks/common"
-	"github.com/chopsticks/errors"
+	"github.com/eminently/chopsticks/common"
+	"github.com/eminently/chopsticks/errors"
 	"github.com/gcash/bchd/btcjson"
 )
 

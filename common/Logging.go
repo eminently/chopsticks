@@ -12,7 +12,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"github.com/chopsticks/errors"
+	"github.com/eminently/chopsticks/errors"
 	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
 	"io"
@@ -48,7 +48,9 @@ func Logger(module string, context context.Context) zerolog.Logger {
 	var writer io.Writer
 	var err error
 
-	writer = zerolog.ConsoleWriter{os.Stdout, false}
+	writer = zerolog.ConsoleWriter{os.Stdout, false, "", nil, nil,
+		nil, nil, nil, nil, nil,
+		nil, nil}
 
 	if err != nil {
 		panic("unable to register zerolog on syslog")
