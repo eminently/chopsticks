@@ -56,7 +56,7 @@ func TestGetTransaction(t *testing.T) {
 
 func TestGetTransactionFromChain(t *testing.T) {
 
-	response, err := GetTransactionFromChain("386b92a3cf746dadf5785b5c4c8f7fd46c0c6b795e8d95516e47553736bd7914","a8a46da4dc3b42cabfe111388c13994e","XBT")//utxoSource, apiToken, model.BLOCKCHAIN_TYPE_XBC_MAINNET)
+	response, err := GetTransactionFromChain(utxoSource, apiToken, model.BLOCKCHAIN_TYPE_XBC_MAINNET)
 
 
 	assert.Nil(t, err, "shoult not report any")
