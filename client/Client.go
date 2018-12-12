@@ -28,7 +28,16 @@ import (
 	"strings"
 )
 
-const CHOPSTICKS_API_URL = "https://api.chopsticks.cash"
+var CHOPSTICKS_API_URL = "https://api.chopsticks.cash"
+
+
+/**
+ * This method initializes chopsticks client with a custom API end-point.
+ * 	- url: API URL
+ */
+func Init(url string) {
+	CHOPSTICKS_API_URL = url
+}
 
 /**
  * This method creates a Bitcoin Cash transaction and sign it
