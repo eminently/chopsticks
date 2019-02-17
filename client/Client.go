@@ -277,6 +277,26 @@ func GetTransactionByAddress(address string, apiToken string) (*model.Transactio
 }
 
 
+func GetTransactionByAddressFromChain(address string, chainType string, apiToken string) (*model.TransactionResponse, *errors.AppError) {
+	trxData, appErr := network.Get(CHOPSTICKS_API_URL+"/transactions/address/"+address,  map[string]string{"chainType":chainType}, apiToken )
+
+	if appErr != nil {
+		return nil, appErr
+	}
+
+	response := model.TransactionResponse{}
+
+	dec := json.NewDecoder(strings.NewReader(string(trxData)))
+	errD := dec.Decode(&response)
+
+	if errD != nil {
+		return nil, errors.NewAppError(nil, "cannot parse transaction response: "+string(trxData), -1, nil)
+	}
+
+	return &response, nil
+}
+
+
 func GetRawMempools(apiToken string) (*model.MempoolsResponse, *errors.AppError){
 	data, appErr := network.Get(CHOPSTICKS_API_URL+"/blockchains/mempool", nil, apiToken )
 
