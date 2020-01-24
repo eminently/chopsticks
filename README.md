@@ -3,6 +3,11 @@
 If you are afraid of Bitcoin Cash [forks](https://en.wikipedia.org/wiki/List_of_bitcoin_forks), use [chopsticks](https://api.chopsticks.cash) !
 
 ---
+## Status
+
+This API is not active anymore since the market decided to keep two competing and now independent chains. If you have a project that requires the same approach or solution, feel free to reach out to us. 
+
+---
 ## Context
 
 Sadly, the probability that the BitcoinCash (BCH/XBC) community will have to deal with a contentious fork on November 15th, 2018 is pretty high at this point.
